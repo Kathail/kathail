@@ -203,13 +203,13 @@
         </div>
     </section>
 
-    <!-- Setup / Specs Section (Replaced 'Skills' with 'Setup' briefly, kept skills below) -->
+    <!-- Setup / Specs Section -->
     <section id="setup" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12 font-mono text-center"><span class="text-green-500">02.</span> Battle Station</h2>
+            <h2 class="text-3xl font-bold text-white mb-12 font-mono text-center"><span class="text-green-500">02.</span> Battle Station & Skills</h2>
             
             <!-- Neofetch Style Block -->
-            <div class="max-w-4xl mx-auto glass-panel p-6 rounded-lg font-mono text-sm md:text-base overflow-x-auto">
+            <div class="max-w-4xl mx-auto glass-panel p-6 rounded-lg font-mono text-sm md:text-base overflow-x-auto mb-16">
                 <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
                     <!-- ASCII Logo -->
                     <div class="text-cachy-blue ascii-art hidden md:block select-none">
@@ -250,51 +250,86 @@
                 </div>
             </div>
 
-            <!-- Skills Grid (Below Specs) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <!-- Skills Grid (Expanded) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Networking -->
                 <div class="glass-panel p-6 rounded-lg hover:border-green-500 transition-colors">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center">
-                        <i class="fas fa-network-wired mr-3"></i>Networking
+                        <i class="fas fa-network-wired mr-3"></i>Networking Protocols
                     </h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center justify-between">
+                    <div class="space-y-3 text-gray-300">
+                        <div class="flex justify-between items-center text-sm">
                             <span>TCP/IP & OSI Model</span>
-                            <div class="w-24 h-2 bg-gray-700 rounded"><div class="h-2 bg-green-500 rounded" style="width: 85%"></div></div>
-                        </li>
-                        <li class="flex items-center justify-between">
-                            <span>Wireshark / PCAP</span>
-                            <div class="w-24 h-2 bg-gray-700 rounded"><div class="h-2 bg-green-500 rounded" style="width: 70%"></div></div>
-                        </li>
-                    </ul>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Advanced</span>
+                        </div>
+                         <div class="flex justify-between items-center text-sm">
+                            <span>Packet Analysis (Wireshark)</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Intermediate</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span>Subnetting & CIDR</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Advanced</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span>DNS / DHCP / HTTP</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Intermediate</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Tools -->
+                <!-- Offensive Tools -->
                 <div class="glass-panel p-6 rounded-lg hover:border-green-500 transition-colors">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center">
-                        <i class="fas fa-laptop-code mr-3"></i>Tools
+                        <i class="fas fa-hammer mr-3"></i>Offensive Security
                     </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-800 border border-green-800 rounded text-sm text-green-300">Nmap</span>
-                        <span class="px-3 py-1 bg-gray-800 border border-green-800 rounded text-sm text-green-300">Burp Suite</span>
-                        <span class="px-3 py-1 bg-gray-800 border border-green-800 rounded text-sm text-green-300">Metasploit</span>
-                        <span class="px-3 py-1 bg-gray-800 border border-green-800 rounded text-sm text-green-300">Docker</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-red-900 rounded text-sm text-red-300">Nmap</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-red-900 rounded text-sm text-red-300">Burp Suite CE</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-red-900 rounded text-sm text-red-300">Metasploit</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-red-900 rounded text-sm text-red-300">Hydra</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-red-900 rounded text-sm text-red-300">John the Ripper</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-red-900 rounded text-sm text-red-300">Gobuster</span>
+                    </div>
+                </div>
+
+                <!-- Operating Systems -->
+                <div class="glass-panel p-6 rounded-lg hover:border-green-500 transition-colors">
+                    <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center">
+                        <i class="fab fa-linux mr-3"></i>Systems & OS
+                    </h3>
+                    <div class="space-y-3 text-gray-300">
+                         <div class="flex justify-between items-center text-sm">
+                            <span>Linux (Arch/Debian)</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Daily Driver</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span>Windows Active Directory</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Lab Env</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span>Virtualization (Docker/VMware)</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Intermediate</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Languages -->
                 <div class="glass-panel p-6 rounded-lg hover:border-green-500 transition-colors">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center">
-                        <i class="fas fa-code mr-3"></i>Scripting
+                        <i class="fas fa-code mr-3"></i>Scripting & Automation
                     </h3>
                     <div class="space-y-4">
                         <div class="flex justify-between text-sm mb-1">
-                            <span>Python</span>
+                            <span>Python 3</span>
                             <div class="w-24 h-2 bg-gray-700 rounded mt-1"><div class="h-2 bg-blue-500 rounded" style="width: 60%"></div></div>
                         </div>
                         <div class="flex justify-between text-sm mb-1">
                             <span>Bash / Shell</span>
-                            <div class="w-24 h-2 bg-gray-700 rounded mt-1"><div class="h-2 bg-yellow-500 rounded" style="width: 80%"></div></div>
+                            <div class="w-24 h-2 bg-gray-700 rounded mt-1"><div class="h-2 bg-yellow-500 rounded" style="width: 85%"></div></div>
+                        </div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span>SQL (Basic Queries)</span>
+                            <div class="w-24 h-2 bg-gray-700 rounded mt-1"><div class="h-2 bg-purple-500 rounded" style="width: 40%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -310,7 +345,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Project 1 -->
                 <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
-                    <div class="p-6">
+                    <div class="p-6 h-full flex flex-col">
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-server text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
@@ -318,10 +353,10 @@
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Home Lab: Active Directory</h3>
-                        <p class="text-gray-400 text-sm mb-4">
-                            Deployed a Windows Server 2019 Domain Controller and 2 Windows 10 clients using VirtualBox. Simulated Kerberoasting and SMB Relay attacks to understand lateral movement defenses.
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">
+                            Deployed a Windows Server 2019 Domain Controller and 2 Windows 10 clients using VirtualBox. Configured Group Policies, Users, and OUs. Simulated Kerberoasting and SMB Relay attacks to understand lateral movement defenses.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400">
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
                             <span>#VirtualBox</span>
                             <span>#ActiveDirectory</span>
                             <span>#Mimikatz</span>
@@ -331,7 +366,7 @@
 
                 <!-- Project 2 -->
                 <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
-                    <div class="p-6">
+                    <div class="p-6 h-full flex flex-col">
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-bug text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
@@ -339,13 +374,55 @@
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Python Port Scanner</h3>
-                        <p class="text-gray-400 text-sm mb-4">
-                            Wrote a custom multi-threaded port scanner in Python using the `socket` library. It identifies open ports and attempts banner grabbing to identify running services.
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">
+                            Wrote a custom multi-threaded port scanner in Python using the `socket` library. It identifies open ports, handles timeouts gracefully, and attempts banner grabbing to identify running services and versions.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400">
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
                             <span>#Python3</span>
                             <span>#Sockets</span>
                             <span>#Networking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 (New) -->
+                <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
+                    <div class="p-6 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-network-wired text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
+                            <div class="flex space-x-2">
+                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-file-pdf text-xl"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Network Traffic Analysis</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">
+                            Analyzed captured PCAP files using Wireshark to identify network anomalies. Successfully filtered for ARP poisoning attempts and TCP SYN floods. Documented Indicators of Compromise (IOCs) in a final report.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
+                            <span>#Wireshark</span>
+                            <span>#PCAP</span>
+                            <span>#BlueTeam</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 (New) -->
+                <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
+                    <div class="p-6 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-shield-alt text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
+                            <div class="flex space-x-2">
+                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-laptop-code text-xl"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Web Vulnerability Assessment</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">
+                            Conducted a black-box assessment on the "OWASP Juice Shop" vulnerable application. Manually identified and exploited SQL Injection (SQLi) and Reflected XSS vulnerabilities. Produced a remediation report.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
+                            <span>#OWASP</span>
+                            <span>#BurpSuite</span>
+                            <span>#WebSec</span>
                         </div>
                     </div>
                 </div>
