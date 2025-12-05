@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kathail's Pentesting Portfolio - CachyOS/Arch User, CTF Enthusiast, and Aspiring Penetration Tester.">
+    <meta property="og:title" content="Kathail // Pentesting Portfolio">
+    <meta property="og:description" content="Aspiring Penetration Tester | CachyOS | Python | Web Sec">
+    <meta property="og:type" content="website">
+    
+    <!-- Dynamic Favicon (Terminal Prompt) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>_</text></svg>">
+
     <title>Kathail // Pentesting Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -86,6 +94,50 @@
             .ascii-art {
                 font-size: 12px;
                 line-height: 12px;
+            }
+        }
+
+        /* PRINT STYLES - Hides everything except resume and formats it for A4/PDF */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #resume, #resume * {
+                visibility: visible;
+            }
+            #resume {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background: white;
+                color: black;
+            }
+            .glass-panel, body {
+                background: none !important;
+            }
+            /* Hide the download button during print */
+            .print:hidden {
+                display: none !important;
+            }
+            /* Ensure text is black for printing */
+            .text-gray-300, .text-gray-400, .text-white {
+                color: black !important;
+            }
+            .bg-gray-800 {
+                background-color: #333 !important;
+                color: white !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .text-green-400 {
+                color: #166534 !important; /* Darker green for print readability */
+            }
+            a {
+                text-decoration: none;
+                color: black;
             }
         }
     </style>
@@ -524,7 +576,7 @@
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-shield-alt text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                
+                                <a href="#" class="text-gray-400 hover:text-white cursor-default"><i class="fas fa-link text-xl"></i></a>
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Infrastructure Contractor Site</h3>
@@ -545,7 +597,7 @@
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-bug text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                
+                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-file-code text-xl"></i></a>
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Python Port Scanner + Banner Grabber</h3>
@@ -566,7 +618,7 @@
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-server text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                
+                                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Enterprise Active Directory Lab</h3>
@@ -587,7 +639,7 @@
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-network-wired text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                
+                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-file-alt text-xl"></i></a>
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Network Traffic Analysis</h3>
@@ -771,9 +823,9 @@
                 </div>
                 
                 <div class="bg-gray-200 p-4 text-center">
-                    <a href="#" class="inline-block bg-gray-800 text-white px-6 py-2 rounded hover:bg-green-600 transition-colors font-bold shadow-lg">
+                    <button onclick="window.print()" class="print:hidden inline-block bg-gray-800 text-white px-6 py-2 rounded hover:bg-green-600 transition-colors font-bold shadow-lg">
                         <i class="fas fa-download mr-2"></i>Download PDF Version
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -786,7 +838,7 @@
             <div class="flex justify-center space-x-8 mb-8">
                 <a href="https://github.com/Kathail" target="_blank" class="text-gray-400 hover:text-green-500 text-3xl transition-transform hover:-translate-y-1"><i class="fab fa-github"></i></a>
                 <a href="https://tryhackme.com/p/Kathail" target="_blank" class="text-gray-400 hover:text-red-500 text-3xl transition-transform hover:-translate-y-1"><i class="fas fa-bug"></i></a> <!-- Using bug icon for THM -->
-                <a href="#" class="text-gray-400 hover:text-green-500 text-3xl transition-transform hover:-translate-y-1"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:kathail@pm.me" class="text-gray-400 hover:text-green-500 text-3xl transition-transform hover:-translate-y-1"><i class="fas fa-envelope"></i></a>
             </div>
             <p class="text-gray-600 font-mono text-sm">
                 Designed & Built by <span class="text-green-500">Kathail</span>. 
