@@ -86,16 +86,9 @@
         
         /* Neofetch style ASCII art */
         .ascii-art {
-            font-size: 10px;
-            line-height: 10px;
             white-space: pre;
             font-family: monospace;
-        }
-        @media (min-width: 768px) {
-            .ascii-art {
-                font-size: 12px;
-                line-height: 12px;
-            }
+            line-height: 1.1;
         }
 
         /* Print Styles for PDF Generation */
@@ -253,35 +246,22 @@
             
             <!-- Neofetch Style Block -->
             <div class="max-w-4xl mx-auto glass-panel p-6 rounded-lg font-mono text-sm md:text-base overflow-x-auto mb-16">
-                <div class="flex flex-col md:flex-row gap-8 items-start justify-center">
+                <div class="flex flex-col md:flex-row gap-8 items-center justify-center h-full">
                     <!-- ASCII Art Column -->
-                    <div class="hidden md:flex flex-col items-center justify-start space-y-8 text-cachy-blue select-none w-1/3 pt-2 text-left">
-                        <!-- Logo -->
-                        <div class="ascii-art">
-       /\\
-      /  \\
-     /    \\      <span class="text-gray-500"># CachyOS</span>
-    /      \\
-   /    ,,    \\
-  /    |  |    \\
- /_-''    ''-_\\
-                        </div>
-                        
-                        <!-- Lock Art (New) -->
-                        <div class="ascii-art text-green-500 opacity-80">
-   .---.
-  /     \     <span class="text-gray-500"># SECURE</span>
-  | (_) |     <span class="text-gray-500"># SHELL</span>
-  |     |
-  |---. |
-  |   | |
-  |   | |
-  |___|_|
+                    <div class="hidden md:flex flex-col items-center justify-center text-green-500 select-none w-1/3 h-full">
+                        <div class="ascii-art font-bold text-[10px] md:text-lg lg:text-xl leading-tight">
+      /\\
+     /  \\
+    /    \\
+   /      \\
+  /   ,,   \\
+ /   |  |   \\
+/_-''    ''-_\\
                         </div>
                     </div>
                     
                     <!-- Specs Info -->
-                    <div class="w-full md:w-2/3 md:border-l md:border-gray-800 md:pl-8">
+                    <div class="w-full md:w-2/3 md:border-l md:border-gray-800 md:pl-12">
                         <div class="mb-4 text-gray-400">kathail@desktop</div>
                         <div class="mb-4">-----------------</div>
                         <div class="grid grid-cols-1 gap-1 text-gray-300">
@@ -523,8 +503,7 @@
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-shield-alt text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <!-- No link wrapper for dead link -->
-                                <span class="text-gray-600 cursor-not-allowed" aria-label="Private Project"><i class="fas fa-link text-xl"></i></span>
+                                <a href="#" class="text-gray-400 hover:text-white" aria-label="Private Project"><i class="fas fa-link text-xl"></i></a>
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Secure Service Platform</h3>
@@ -545,8 +524,7 @@
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-bug text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <!-- No link wrapper for dead link -->
-                                <span class="text-gray-600 cursor-not-allowed" aria-label="Code snippet"><i class="fas fa-file-code text-xl"></i></span>
+                                <a href="#" class="text-gray-400 hover:text-white" aria-label="Code snippet"><i class="fas fa-file-code text-xl"></i></a>
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Python Port Scanner</h3>
@@ -625,7 +603,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <h4 class="font-bold">CompTIA Security+ (SY0-701)</h4>
-                                <p class="text-sm text-yellow-600"><i class="fas fa-circle-notch fa-spin mr-1"></i>In Progress</p>
+                                <p class="text-sm text-yellow-600"><i class="fas fa-circle-notch fa-spin mr-1"></i> In Progress</p>
                             </div>
                             <div>
                                 <h4 class="font-bold">THM: Pre-Security</h4>
@@ -635,11 +613,11 @@
                             </div>
                             <div>
                                 <h4 class="font-bold">THM: Jr Penetration Tester</h4>
-                                <p class="text-sm text-yellow-600"><i class="fas fa-circle-notch fa-spin mr-1"></i>In Progress</p>
+                                <p class="text-sm text-yellow-600"><i class="fas fa-circle-notch fa-spin mr-1"></i> In Progress</p>
                             </div>
                              <div>
                                 <h4 class="font-bold">Google Cybersecurity Certificate</h4>
-                                <p class="text-sm text-yellow-600"><i class="fas fa-circle-notch fa-spin mr-1"></i>In Progress</p>
+                                <p class="text-sm text-yellow-600"><i class="fas fa-circle-notch fa-spin mr-1"></i> In Progress</p>
                             </div>
                         </div>
                     </div>
@@ -666,28 +644,28 @@
                         <div class="mb-4">
                              <h4 class="font-bold">Server Administration & Virtualization</h4>
                              <p class="text-gray-700 italic">Private Infrastructure Projects</p>
-                             <ul class="list-none text-sm text-gray-600 mt-1 space-y-1">
-                                <li><i class="fas fa-server text-gray-500 mr-1"></i> Deployed and maintained private game servers using <strong>VMware</strong> virtualization.</li>
-                                <li><i class="fas fa-terminal text-gray-500 mr-1"></i> Configured remote Linux environments via SSH (PuTTY), managed <strong>MySQL</strong> databases, and handled service uptime.</li>
+                             <ul class="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
+                                <li>Deployed and maintained private game servers using VMware virtualization.</li>
+                                <li>Configured remote Linux environments via SSH (PuTTY), managed MySQL databases, and handled service uptime.</li>
                             </ul>
                        </div>
 
                        <div class="mb-4">
                             <h4 class="font-bold">Community Administration & Traffic Optimization</h4>
                             <p class="text-gray-700 italic">Digital Asset Management</p>
-                            <ul class="list-none text-sm text-gray-600 mt-1 space-y-1">
-                                <li><i class="fas fa-users text-gray-500 mr-1"></i> Served as Administrator for high-traffic niche communities, implementing strategies to boost user engagement and unique hits.</li>
-                                <li><i class="fas fa-chart-line text-gray-500 mr-1"></i> Managed content moderation policies and optimized site performance for asset flipping/resale.</li>
+                            <ul class="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
+                                <li>Served as Administrator for high-traffic niche communities, implementing strategies to boost user engagement and unique hits.</li>
+                                <li>Managed content moderation policies and optimized site performance for asset flipping/resale.</li>
                             </ul>
                         </div>
 
                         <div class="mb-4">
                              <h4 class="font-bold">Full Stack Development Studies</h4>
                              <p class="text-gray-700 italic">The Odin Project & Codecademy</p>
-                             <ul class="list-none text-sm text-gray-600 mt-1 space-y-1">
-                                <li><i class="fas fa-code text-gray-500 mr-1"></i> Completed comprehensive curriculum covering Semantic HTML5, CSS3, and ES6+ JavaScript.</li>
-                                <li><i class="fas fa-tools text-gray-500 mr-1"></i> Developed custom <strong>Userscripts</strong> to automate repetitive workflows at current employment.</li>
-                                <li><i class="fas fa-laptop-code text-gray-500 mr-1"></i> Built and deployed various web applications for personal use and friends.</li>
+                             <ul class="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
+                                <li>Completed comprehensive curriculum covering Semantic HTML5, CSS3, and ES6+ JavaScript.</li>
+                                <li>Developed custom Userscripts to automate repetitive workflows at current employment.</li>
+                                <li>Built and deployed various web applications for personal use and friends.</li>
                              </ul>
                         </div>
                     </div>
