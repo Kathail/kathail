@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Kathail - Aspiring Penetration Tester & Systems Engineer.">
+    <meta property="og:title" content="Kathail // Pentesting Portfolio">
+    <meta property="og:description" content="Cybersecurity enthusiast, CachyOS user, and Python developer. View my projects and lab reports.">
+    <meta property="og:type" content="website">
+    
+    <!-- Terminal Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2322c55e%22>_</text></svg>">
+
     <title>Kathail // Pentesting Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -88,15 +96,47 @@
                 line-height: 12px;
             }
         }
+
+        /* Print Styles for PDF Generation */
+        @media print {
+            body { 
+                background: white !important; 
+                color: black !important; 
+                background-image: none !important;
+            }
+            .no-print, nav, #home, #about, #setup, #projects, footer, .crt-overlay, #hero-buttons { 
+                display: none !important; 
+            }
+            #resume { 
+                padding: 0 !important; 
+                margin: 0 !important;
+                display: block !important;
+            }
+            #resume .max-w-4xl {
+                max-width: 100% !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+            }
+            .glass-panel {
+                border: 1px solid #ccc;
+                background: none !important;
+            }
+            /* Hide the download button itself */
+            .print-hidden {
+                display: none !important;
+            }
+            /* Ensure links are readable */
+            a { text-decoration: none !important; color: black !important; }
+        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-green-500 selection:text-black relative">
 
     <!-- CRT Screen Effect Overlay -->
-    <div class="fixed inset-0 crt-overlay z-50 pointer-events-none h-screen w-screen"></div>
+    <div class="fixed inset-0 crt-overlay z-50 pointer-events-none h-screen w-screen no-print"></div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-40 top-0 bg-black/90 border-b border-green-900 backdrop-blur-sm">
+    <nav class="fixed w-full z-40 top-0 bg-black/90 border-b border-green-900 backdrop-blur-sm no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
@@ -122,17 +162,17 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-green-900">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 font-mono">
-                <a href="#home" class="text-gray-300 hover:text-green-400 block px-3 py-2">./home</a>
-                <a href="#about" class="text-gray-300 hover:text-green-400 block px-3 py-2">./about</a>
-                <a href="#setup" class="text-gray-300 hover:text-green-400 block px-3 py-2">./setup</a>
-                <a href="#projects" class="text-gray-300 hover:text-green-400 block px-3 py-2">./projects</a>
-                <a href="#resume" class="text-green-500 block px-3 py-2 font-bold">./resume</a>
+                <a href="#home" onclick="toggleMenu()" class="text-gray-300 hover:text-green-400 block px-3 py-2">./home</a>
+                <a href="#about" onclick="toggleMenu()" class="text-gray-300 hover:text-green-400 block px-3 py-2">./about</a>
+                <a href="#setup" onclick="toggleMenu()" class="text-gray-300 hover:text-green-400 block px-3 py-2">./setup</a>
+                <a href="#projects" onclick="toggleMenu()" class="text-gray-300 hover:text-green-400 block px-3 py-2">./projects</a>
+                <a href="#resume" onclick="toggleMenu()" class="text-green-500 block px-3 py-2 font-bold">./resume</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-16 px-4">
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 px-4 no-print">
         <div class="max-w-4xl w-full">
             <div class="glass-panel rounded-lg shadow-2xl shadow-green-900/20 overflow-hidden border border-green-800">
                 <!-- Terminal Header -->
@@ -164,7 +204,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-black/50">
+    <section id="about" class="py-20 bg-black/50 no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="md:flex gap-12 items-start">
                 <!-- THM Badge / Identity -->
@@ -176,8 +216,8 @@
                             <h3 class="text-xl font-bold text-white mb-2">Kathail</h3>
                             <p class="text-gray-400 text-sm mb-4">Cybersecurity Enthusiast</p>
                             <!-- TryHackMe Badge -->
-                            <div class="flex justify-center overflow-hidden">
-                                <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=5844366" style='border:none; width: 100%; height: 200px;'></iframe>
+                            <div class="flex justify-center overflow-hidden w-full aspect-[2/1] relative">
+                                <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=5844366" class="w-full h-full border-none absolute inset-0"></iframe>
                             </div>
                         </div>
                     </div>
@@ -206,7 +246,7 @@
     </section>
 
     <!-- Setup / Specs Section -->
-    <section id="setup" class="py-20">
+    <section id="setup" class="py-20 no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-white mb-12 font-mono text-center"><span class="text-green-500">02.</span> Battle Station & Skills</h2>
             
@@ -217,10 +257,10 @@
                     <div class="text-cachy-blue ascii-art hidden md:block select-none">
        /\\
       /  \\
-     /    \\     <span class="text-gray-500"># CachyOS</span>
+     /    \\      <span class="text-gray-500"># CachyOS</span>
     /      \\
-   /   ,,   \\
-  /   |  |   \\
+   /    ,,    \\
+  /    |  |    \\
  /_-''    ''-_\\
                     </div>
                     
@@ -235,7 +275,6 @@
                             <div><span class="text-cachy-blue font-bold">WM</span>: KWin (Wayland)</div>
                             <div><span class="text-cachy-blue font-bold">CPU</span>: AMD Ryzen 9 5900X (24) @ 5.62 GHz</div>
                             <div><span class="text-cachy-blue font-bold">GPU</span>: AMD Radeon RX 7900 XTX [Discrete]</div>
-                            <div class="mt-2 text-green-400"><span class="font-bold">Domain</span>: Water/Wastewater (Critical Infra)</div>
                         </div>
                         
                         <!-- Color Pallette strip -->
@@ -253,7 +292,7 @@
                 </div>
             </div>
 
-            <!-- Skills Grid (Expanded) -->
+            <!-- Skills Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Networking -->
                 <div class="glass-panel p-6 rounded-lg hover:border-green-500 transition-colors">
@@ -291,20 +330,10 @@
                                 <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
                             </div>
                         </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <span>DNS / DHCP / FTP</span>
-                            <div class="flex gap-1" title="Familiar">
-                                <div class="w-3 h-3 bg-cachy-blue rounded-sm"></div>
-                                <div class="w-3 h-3 bg-cachy-blue rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Offensive Security (Reworked) -->
+                <!-- Offensive Security -->
                 <div class="glass-panel p-6 rounded-lg hover:border-green-500 transition-colors">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center">
                         <i class="fas fa-hammer mr-3"></i>Offensive Operations
@@ -340,20 +369,10 @@
                                 <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
                             </div>
                         </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <span>Password Attacks (Hydra)</span>
-                            <div class="flex gap-1" title="Familiar">
-                                <div class="w-3 h-3 bg-cachy-blue rounded-sm"></div>
-                                <div class="w-3 h-3 bg-cachy-blue rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Operating Systems -->
+                <!-- Operating Systems (Restored) -->
                 <div class="glass-panel p-6 rounded-lg hover:border-green-500 transition-colors">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center">
                         <i class="fab fa-linux mr-3"></i>Systems & OS
@@ -392,7 +411,7 @@
                     </div>
                 </div>
 
-                <!-- Languages & Development -->
+                <!-- Languages & Development (Restored) -->
                 <div class="glass-panel p-6 rounded-lg hover:border-green-500 transition-colors">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center">
                         <i class="fas fa-code mr-3"></i>Programming & Dev
@@ -428,26 +447,6 @@
                                 <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
                             </div>
                         </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <span>MySQL / SQL</span>
-                            <div class="flex gap-1" title="Familiar">
-                                <div class="w-3 h-3 bg-cachy-blue rounded-sm"></div>
-                                <div class="w-3 h-3 bg-cachy-blue rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <span>ICS / SCADA Security</span>
-                            <div class="flex gap-1" title="Familiar">
-                                <div class="w-3 h-3 bg-cachy-blue rounded-sm"></div>
-                                <div class="w-3 h-3 bg-cachy-blue rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                                <div class="w-3 h-3 bg-gray-800 rounded-sm"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -455,33 +454,54 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-black/50">
+    <section id="projects" class="py-20 bg-black/50 no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-white mb-12 font-mono"><span class="text-green-500">03.</span> Lab Reports & Projects</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Project 1: NorthScrape -->
+                <!-- Project 1: NorthScrape Dashboard -->
                 <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
                     <div class="p-6 h-full flex flex-col">
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-chart-line text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-link text-xl"></i></a>
+                                <a href="https://github.com/Kathail/NorthScrape-Dashboard" target="_blank" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">NorthScrape Lead Intelligence Dashboard</h3>
+                        <h3 class="text-xl font-bold text-white mb-2">NorthScrape Dashboard</h3>
                         <p class="text-gray-400 text-sm mb-4 flex-grow">
-                            Built a fully offline-first web dashboard (HTML/CSS/JS) that lets users drag-and-drop CSV exports and instantly filter/sort leads. In active daily use by a researcher friend since December 2025. Deployed on GitHub Pages — zero server cost.
+                            An offline-first, browser-based dashboard for field sales teams. Processes CSV exports locally using Javascript (PapaParse) to filter, sort, and map leads without external servers. Features persistent session storage and route generation.
                         </p>
                         <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
-                            <span>#OfflineFirst</span>
                             <span>#JavaScript</span>
-                            <span>#DataVisualization</span>
+                            <span>#ClientSide</span>
+                            <span>#DataViz</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: Local Business Site -->
+                <!-- Project 2: NorthScrape Data Engine -->
+                <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
+                    <div class="p-6 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-robot text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
+                            <div class="flex space-x-2">
+                                <a href="https://github.com/Kathail/NorthScrape" target="_blank" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">NorthScrape Data Engine</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">
+                            A highly concurrent Python ETL engine used to aggregate B2B lead data. Utilizes `concurrent.futures` for multi-threaded processing, robust error handling for network timeouts, and structured data output for the dashboard.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
+                            <span>#Python</span>
+                            <span>#ETL</span>
+                            <span>#MultiThreading</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Secure Service Platform (Watersome.ca) -->
                 <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
                     <div class="p-6 h-full flex flex-col">
                         <div class="flex justify-between items-start mb-4">
@@ -490,19 +510,19 @@
                                 <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-link text-xl"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Local Business Website (Live)</h3>
+                        <h3 class="text-xl font-bold text-white mb-2">Secure Service Platform</h3>
                         <p class="text-gray-400 text-sm mb-4 flex-grow">
-                            Designed and deployed a fast, secure, mobile-responsive marketing site for a colleague’s local business. Hand-coded vanilla stack, 100/100 Lighthouse scores, proper security headers + Cloudflare WAF rules.
+                            Engineered a performance-focused digital presence for a regional residential water treatment provider. Hand-coded HTML/CSS achieving 100/100 Lighthouse scores. Hardened security with strict CSP headers, Cloudflare WAF rules, and automated security scanning.
                         </p>
                         <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
-                            <span>#WebDev</span>
-                            <span>#WebHardening</span>
-                            <span>#NoFramework</span>
+                            <span>#WebSec</span>
+                            <span>#Hardening</span>
+                            <span>#Freelance</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 3: Port Scanner -->
+                <!-- Project 4: Port Scanner -->
                 <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
                     <div class="p-6 h-full flex flex-col">
                         <div class="flex justify-between items-start mb-4">
@@ -511,7 +531,7 @@
                                 <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-file-code text-xl"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Python Port Scanner + Banner Grabber</h3>
+                        <h3 class="text-xl font-bold text-white mb-2">Python Port Scanner</h3>
                         <p class="text-gray-400 text-sm mb-4 flex-grow">
                             Wrote a multi-threaded TCP port scanner in Python using the socket library. Handles timeouts gracefully and grabs service banners. Built while working through offensive security labs.
                         </p>
@@ -522,69 +542,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Project 4: AD Lab -->
-                <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
-                    <div class="p-6 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <i class="fas fa-server text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
-                            <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Enterprise Active Directory Lab</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">
-                            Stood up a full Windows Server 2019 domain, configured complex GPOs, nested groups, and practiced Kerberoasting + lateral movement attacks in a safe lab environment.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
-                            <span>#ActiveDirectory</span>
-                            <span>#WindowsServer</span>
-                            <span>#RedTeamBasics</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: Traffic Analysis -->
-                <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
-                    <div class="p-6 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <i class="fas fa-network-wired text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
-                            <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-file-alt text-xl"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Network Traffic Analysis</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">
-                            Deep-dive PCAP analysis with Wireshark: dissected TLS handshakes, ARP poisoning, DNS tunneling, and HTTP anomalies. Documented findings with filters and screenshots.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
-                            <span>#Wireshark</span>
-                            <span>#PCAP</span>
-                            <span>#NetworkSecurity</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: Web Vuln Assessment -->
-                <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
-                    <div class="p-6 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <i class="fas fa-globe-americas text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
-                            <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-laptop-code text-xl"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Web Vulnerability Assessment</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">
-                            Black-box tested the Juice Shop app, found and exploited SQLi, XSS, broken access control, and more using Burp Suite. Wrote clear remediation steps for developers.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
-                            <span>#WebSec</span>
-                            <span>#BurpSuite</span>
-                            <span>#OWASP</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -592,9 +549,9 @@
     <!-- Resume Section -->
     <section id="resume" class="py-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-8 font-mono text-center"><span class="text-green-500">04.</span> Resume / CV</h2>
+            <h2 class="text-3xl font-bold text-white mb-8 font-mono text-center no-print"><span class="text-green-500">04.</span> Resume / CV</h2>
             
-            <div class="bg-gray-100 text-gray-900 rounded shadow-2xl overflow-hidden">
+            <div class="bg-gray-100 text-gray-900 rounded shadow-2xl overflow-hidden resume-container">
                 <!-- Resume Header -->
                 <div class="bg-gray-800 text-white p-8">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
@@ -603,7 +560,7 @@
                             <p class="text-green-400 font-mono mt-2">Aspiring Penetration Tester</p>
                         </div>
                         <div class="mt-4 md:mt-0 text-right text-sm text-gray-400 font-mono">
-                            <p>city, country</p>
+                            <p>Greater Sudbury, ON, Canada</p>
                             <p>email@example.com</p>
                             <p>github.com/Kathail</p>
                         </div>
@@ -650,16 +607,16 @@
                             <h4 class="font-bold">Freelance Web Developer</h4>
                             <p class="text-gray-700 italic">Local Business Client</p>
                             <p class="text-sm text-gray-600 mt-1">
-                                Delivered a professional, high-performance brand platform with a focus on modern security standards.
+                                Delivered a professional, high-performance brand platform for residential infrastructure services.
                             </p>
                             <ul class="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
                                 <li>Engineered a hand-crafted responsive layout without frameworks, achieving perfect 100/100 Core Web Vitals scores.</li>
-                                <li>Implemented security hardening including custom Cloudflare WAF rules and strict HTTP headers (CSP, HSTS).</li>
+                                <li>Reduced attack surface by implementing custom Cloudflare WAF rules and strict HTTP security headers.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Certifications (Crucial for beginners) -->
+                    <!-- Certifications -->
                     <div>
                         <h3 class="text-lg font-bold border-b-2 border-gray-300 pb-1 mb-3 uppercase tracking-wide">Certifications</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -684,65 +641,17 @@
                         </div>
                     </div>
                     
-                     <!-- Practical Experience (Replcaing Formal Work) -->
+                    <!-- Practical Experience -->
                     <div>
                         <h3 class="text-lg font-bold border-b-2 border-gray-300 pb-1 mb-3 uppercase tracking-wide">Virtual Labs & Learning Paths</h3>
                         
-                        <!-- Learning Paths Sub-section -->
                         <div class="mb-6">
                             <h4 class="font-bold text-md mb-2 text-gray-800">Structured Curriculum</h4>
-                            <p class="text-sm text-gray-600 mb-3">
-                                Comprehensive learning paths covering offensive and defensive security methodologies.
-                            </p>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-700">
                                 <div class="flex items-center" title="Completed"><i class="fas fa-check-circle text-green-500 mr-2"></i> THM: Pre-Security</div>
                                 <div class="flex items-center" title="In Progress"><i class="fas fa-circle-notch fa-spin text-yellow-500 mr-2"></i> THM: Cyber Security 101</div>
                                 <div class="flex items-center" title="Completed"><i class="fas fa-check-circle text-green-500 mr-2"></i> HTB: Starting Point (Tier 0)</div>
                                 <div class="flex items-center" title="In Progress"><i class="fas fa-circle-notch fa-spin text-yellow-500 mr-2"></i> HTB: Starting Point (Tier 1)</div>
-                            </div>
-                        </div>
-
-                         <!-- Key Modules Sub-section (New) -->
-                         <div class="mb-6">
-                            <h4 class="font-bold text-md mb-2 text-gray-800">Key Modules Completed</h4>
-                            <p class="text-sm text-gray-600 mb-3">
-                                Specific technical modules completed on TryHackMe demonstrating core competency.
-                            </p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">
-                                <!-- Systems Engineering -->
-                                <div class="bg-gray-100 p-3 rounded">
-                                    <h5 class="font-bold text-gray-900 mb-1"><i class="fas fa-server text-green-500 mr-2"></i>Systems Engineering</h5>
-                                    <ul class="list-disc list-inside text-gray-600 text-xs space-y-1">
-                                        <li>Linux Fundamentals (Parts 1-3) & Shells</li>
-                                        <li>Windows Fundamentals (Parts 1-3)</li>
-                                        <li>Active Directory Basics</li>
-                                        <li>Windows Command Line & PowerShell</li>
-                                    </ul>
-                                </div>
-                                <!-- Network Security -->
-                                <div class="bg-gray-100 p-3 rounded">
-                                    <h5 class="font-bold text-gray-900 mb-1"><i class="fas fa-wifi text-green-500 mr-2"></i>Network Security</h5>
-                                    <ul class="list-disc list-inside text-gray-600 text-xs space-y-1">
-                                        <li>Wireshark: The Basics & Traffic Analysis</li>
-                                        <li>Core Protocols: TCP/IP, DNS, HTTP, SMB</li>
-                                        <li>Secure Protocols: SSH, TLS, VPN</li>
-                                        <li>OSI Model & Packet Analysis</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Practical Labs Sub-section -->
-                        <div class="mb-4">
-                            <h4 class="font-bold text-md mb-2 text-gray-800">Practical Labs & CTFs</h4>
-                            <p class="text-sm text-gray-600 mb-3">
-                                Hands-on exploitation of vulnerable machines and security tool practice.
-                            </p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-700">
-                                <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Room: Blue (EternalBlue)</div>
-                                <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Room: OWASP Top 10</div>
-                                <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Machine: HTB Meow</div>
-                                <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Machine: HTB Fawn</div>
                             </div>
                         </div>
                     </div>
@@ -751,51 +660,41 @@
                     <div>
                         <h3 class="text-lg font-bold border-b-2 border-gray-300 pb-1 mb-3 uppercase tracking-wide">Independent Education</h3>
                         
-                        <!-- New Entry -->
                         <div class="mb-4">
                              <h4 class="font-bold">Web Development & Programming</h4>
                              <p class="text-gray-700 italic">The Odin Project & Codecademy</p>
                              <p class="text-sm text-gray-600 mt-1">
-                                 Completed curriculum covering HTML5, CSS3, JavaScript (ES6+), and Python structures. Built responsive web applications and scripts.
+                                 Completed curriculum covering HTML5, CSS3, JavaScript (ES6+), and Python structures.
                              </p>
                         </div>
 
-                        <!-- Server Admin Entry -->
                         <div class="mb-4">
-                            <h4 class="font-bold">Server Administration & Ecommerce</h4>
+                            <h4 class="font-bold">Server Administration</h4>
                             <p class="text-gray-700 italic">Community Projects</p>
                             <p class="text-sm text-gray-600 mt-1">
-                                Helped maintain private game servers using <strong>VMware</strong> virtualization. Managed <strong>MySQL</strong> databases and utilized <strong>PuTTY (SSH)</strong> and <strong>FTP</strong> for remote server configuration and file management. Gained practical experience with <strong>Shopify</strong> platform management.
+                                Managed Linux game servers using VMware. Configured MySQL databases, SSH access, and firewall rules.
                             </p>
                        </div>
-
-                        <div>
-                            <h4 class="font-bold">Self-Directed Security Learning</h4>
-                            <p class="text-gray-700 italic">2023 - Present</p>
-                            <p class="text-sm text-gray-600 mt-1">
-                                Focused on practical application of cybersecurity concepts through documentation reading, home labs, and open-source intelligence.
-                            </p>
-                        </div>
                     </div>
                 </div>
                 
-                <div class="bg-gray-200 p-4 text-center">
-                    <a href="#" class="inline-block bg-gray-800 text-white px-6 py-2 rounded hover:bg-green-600 transition-colors font-bold shadow-lg">
-                        <i class="fas fa-download mr-2"></i>Download PDF Version
-                    </a>
+                <div class="bg-gray-200 p-4 text-center print-hidden">
+                    <button onclick="window.print()" class="inline-block bg-gray-800 text-white px-6 py-2 rounded hover:bg-green-600 transition-colors font-bold shadow-lg">
+                        <i class="fas fa-file-pdf mr-2"></i>Print / Save as PDF
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-black border-t border-green-900 py-12">
+    <footer id="contact" class="bg-black border-t border-green-900 py-12 no-print">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-mono text-white mb-6">Initialize Communication</h2>
             <div class="flex justify-center space-x-8 mb-8">
                 <a href="https://github.com/Kathail" target="_blank" class="text-gray-400 hover:text-green-500 text-3xl transition-transform hover:-translate-y-1"><i class="fab fa-github"></i></a>
-                <a href="https://tryhackme.com/p/Kathail" target="_blank" class="text-gray-400 hover:text-red-500 text-3xl transition-transform hover:-translate-y-1"><i class="fas fa-bug"></i></a> <!-- Using bug icon for THM -->
-                <a href="#" class="text-gray-400 hover:text-green-500 text-3xl transition-transform hover:-translate-y-1"><i class="fas fa-envelope"></i></a>
+                <a href="https://tryhackme.com/p/Kathail" target="_blank" class="text-gray-400 hover:text-red-500 text-3xl transition-transform hover:-translate-y-1"><i class="fas fa-bug"></i></a>
+                <a href="mailto:email@example.com" class="text-gray-400 hover:text-green-500 text-3xl transition-transform hover:-translate-y-1"><i class="fas fa-envelope"></i></a>
             </div>
             <p class="text-gray-600 font-mono text-sm">
                 Designed & Built by <span class="text-green-500">Kathail</span>. 
