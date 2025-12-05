@@ -210,44 +210,60 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-white mb-12 font-mono text-center"><span class="text-green-500">02.</span> Battle Station & Skills</h2>
             
-            <!-- Neofetch Style Block -->
-            <div class="max-w-4xl mx-auto glass-panel p-6 rounded-lg font-mono text-sm md:text-base overflow-x-auto mb-16">
-                <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                    <!-- ASCII Logo -->
-                    <div class="text-cachy-blue ascii-art hidden md:block select-none">
-       /\\
-      /  \\
-     /    \\     <span class="text-gray-500"># CachyOS</span>
-    /      \\
-   /   ,,   \\
-  /   |  |   \\
- /_-''    ''-_\\
+            <!-- Improved Terminal Window Style Block -->
+            <div class="max-w-4xl mx-auto glass-panel rounded-lg overflow-hidden font-mono text-sm md:text-base mb-16 shadow-lg shadow-green-900/20 border border-gray-800">
+                <!-- Terminal Title Bar -->
+                <div class="bg-gray-900 px-4 py-2 border-b border-green-900/30 flex items-center justify-between">
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 transition-colors"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500 hover:bg-green-400 transition-colors"></div>
+                    </div>
+                    <div class="text-gray-500 text-xs select-none">kathail@desktop: ~</div>
+                    <div class="w-12"></div> <!-- Spacer -->
+                </div>
+                
+                <!-- Terminal Body -->
+                <div class="p-6 md:p-8 text-gray-300 bg-black/40">
+                    <div class="mb-6">
+                        <span class="text-green-500">kathail@desktop</span>:<span class="text-blue-500">~</span>$ fetch_specs --verbose
                     </div>
                     
-                    <!-- Specs Info -->
-                    <div class="w-full">
-                        <div class="mb-4 text-gray-400">kathail@desktop</div>
-                        <div class="mb-4">-----------------</div>
-                        <div class="grid grid-cols-1 gap-1 text-gray-300">
-                            <div><span class="text-cachy-blue font-bold">OS</span>: CachyOS x86_64</div>
-                            <div><span class="text-cachy-blue font-bold">Kernel</span>: Linux 6.17.9-2-cachyos</div>
-                            <div><span class="text-cachy-blue font-bold">Shell</span>: fish 4.2.1</div>
-                            <div><span class="text-cachy-blue font-bold">WM</span>: KWin (Wayland)</div>
-                            <div><span class="text-cachy-blue font-bold">CPU</span>: AMD Ryzen 9 5900X (24) @ 5.62 GHz</div>
-                            <div><span class="text-cachy-blue font-bold">GPU</span>: AMD Radeon RX 7900 XTX [Discrete]</div>
-                            <div class="mt-2 text-green-400"><span class="font-bold">Domain</span>: Water/Wastewater (Critical Infra)</div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+                        <div class="group hover:text-white transition-colors">
+                            <span class="text-cachy-blue font-bold w-24 inline-block"><i class="fab fa-linux mr-2 w-5 text-center"></i>OS</span>: CachyOS x86_64
                         </div>
-                        
-                        <!-- Color Pallette strip -->
-                        <div class="flex mt-6 gap-2">
-                            <div class="w-8 h-4 bg-black"></div>
-                            <div class="w-8 h-4 bg-red-500"></div>
-                            <div class="w-8 h-4 bg-green-500"></div>
-                            <div class="w-8 h-4 bg-yellow-500"></div>
-                            <div class="w-8 h-4 bg-blue-500"></div>
-                            <div class="w-8 h-4 bg-purple-500"></div>
-                            <div class="w-8 h-4 bg-cyan-500"></div>
-                            <div class="w-8 h-4 bg-white"></div>
+                        <div class="group hover:text-white transition-colors">
+                            <span class="text-cachy-blue font-bold w-24 inline-block"><i class="fas fa-microchip mr-2 w-5 text-center"></i>CPU</span>: Ryzen 9 5900X @ 5.62 GHz
+                        </div>
+                        <div class="group hover:text-white transition-colors">
+                            <span class="text-cachy-blue font-bold w-24 inline-block"><i class="fas fa-cogs mr-2 w-5 text-center"></i>Kernel</span>: Linux 6.17.9-2-cachyos
+                        </div>
+                        <div class="group hover:text-white transition-colors">
+                            <span class="text-cachy-blue font-bold w-24 inline-block"><i class="fas fa-video mr-2 w-5 text-center"></i>GPU</span>: Radeon RX 7900 XTX
+                        </div>
+                        <div class="group hover:text-white transition-colors">
+                            <span class="text-cachy-blue font-bold w-24 inline-block"><i class="fas fa-terminal mr-2 w-5 text-center"></i>Shell</span>: fish 4.2.1
+                        </div>
+                        <div class="group hover:text-white transition-colors">
+                            <span class="text-cachy-blue font-bold w-24 inline-block"><i class="fas fa-window-maximize mr-2 w-5 text-center"></i>WM</span>: KWin (Wayland)
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-gray-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <!-- Color Palette strip -->
+                        <div class="flex gap-3">
+                            <div class="w-8 h-4 bg-black rounded-sm"></div>
+                            <div class="w-8 h-4 bg-red-500 rounded-sm"></div>
+                            <div class="w-8 h-4 bg-green-500 rounded-sm"></div>
+                            <div class="w-8 h-4 bg-yellow-500 rounded-sm"></div>
+                            <div class="w-8 h-4 bg-blue-500 rounded-sm"></div>
+                            <div class="w-8 h-4 bg-purple-500 rounded-sm"></div>
+                            <div class="w-8 h-4 bg-cyan-500 rounded-sm"></div>
+                            <div class="w-8 h-4 bg-white rounded-sm"></div>
+                        </div>
+                        <div class="text-green-500 text-xs animate-pulse">
+                            <i class="fas fa-circle text-[10px] mr-2"></i>SYSTEM ONLINE
                         </div>
                     </div>
                 </div>
@@ -460,39 +476,60 @@
             <h2 class="text-3xl font-bold text-white mb-12 font-mono"><span class="text-green-500">03.</span> Lab Reports & Projects</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Project 1: NorthScrape -->
+                <!-- Project 1: NorthScrape Dashboard -->
                 <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
                     <div class="p-6 h-full flex flex-col">
                         <div class="flex justify-between items-start mb-4">
-                            <i class="fas fa-chart-line text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
+                            <i class="fas fa-chart-pie text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-link text-xl"></i></a>
+                                <a href="https://github.com/Kathail/NorthScrape-Dashboard" target="_blank" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">NorthScrape Lead Intelligence Dashboard</h3>
+                        <h3 class="text-xl font-bold text-white mb-2">NorthScrape Dashboard</h3>
                         <p class="text-gray-400 text-sm mb-4 flex-grow">
-                            Built a fully offline-first web dashboard (HTML/CSS/JS) that lets users drag-and-drop CSV exports and instantly filter/sort leads. In active daily use by a researcher friend since December 2025. Deployed on GitHub Pages — zero server cost.
+                            Developed an offline-first analytics dashboard for Northern Sweet Supply. Features client-side CSV parsing, drag-and-drop file handling, and instant data filtering using Vanilla JS. Zero-dependency architecture ensuring functionality in low-connectivity field environments.
                         </p>
                         <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
-                            <span>#OfflineFirst</span>
                             <span>#JavaScript</span>
-                            <span>#DataVisualization</span>
+                            <span>#OfflineFirst</span>
+                            <span>#DataViz</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: Local Business Site -->
+                <!-- Project 2: NorthScrape Engine -->
+                <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
+                    <div class="p-6 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-server text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
+                            <div class="flex space-x-2">
+                                <a href="https://github.com/Kathail/NorthScrape" target="_blank" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">NorthScrape ETL Engine</h3>
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">
+                            Engineered a multi-threaded Python ETL pipeline using `concurrent.futures`. Automates the scraping, cleaning, and aggregation of B2B lead data for Northern Sweet Supply. Includes robust error handling and structured CSV export logic for the frontend dashboard.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
+                            <span>#Python</span>
+                            <span>#ETL</span>
+                            <span>#Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Local Business Site -->
                 <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
                     <div class="p-6 h-full flex flex-col">
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-shield-alt text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-link text-xl"></i></a>
+                                
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Local Business Website (Live)</h3>
+                        <h3 class="text-xl font-bold text-white mb-2">Infrastructure Contractor Site</h3>
                         <p class="text-gray-400 text-sm mb-4 flex-grow">
-                            Designed and deployed a fast, secure, mobile-responsive marketing site for a colleague’s local business. Hand-coded vanilla stack, 100/100 Lighthouse scores, proper security headers + Cloudflare WAF rules.
+                            Designed and deployed a fast, secure, mobile-responsive marketing site for a construction company that repairs and installs critical infrastructure. Hand-coded vanilla stack achieving 100/100 Lighthouse scores. Implemented security hardening including custom Cloudflare WAF rules and strict HTTP headers.
                         </p>
                         <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
                             <span>#WebDev</span>
@@ -502,13 +539,13 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Port Scanner -->
+                <!-- Project 4: Port Scanner -->
                 <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
                     <div class="p-6 h-full flex flex-col">
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-bug text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-file-code text-xl"></i></a>
+                                
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Python Port Scanner + Banner Grabber</h3>
@@ -523,13 +560,13 @@
                     </div>
                 </div>
 
-                <!-- Project 4: AD Lab -->
+                <!-- Project 5: AD Lab -->
                 <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
                     <div class="p-6 h-full flex flex-col">
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-server text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+                                
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Enterprise Active Directory Lab</h3>
@@ -544,13 +581,13 @@
                     </div>
                 </div>
 
-                <!-- Project 5: Traffic Analysis -->
+                <!-- Project 6: Traffic Analysis -->
                 <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
                     <div class="p-6 h-full flex flex-col">
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-network-wired text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-file-alt text-xl"></i></a>
+                                
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Network Traffic Analysis</h3>
@@ -561,27 +598,6 @@
                             <span>#Wireshark</span>
                             <span>#PCAP</span>
                             <span>#NetworkSecurity</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: Web Vuln Assessment -->
-                <div class="group relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all duration-300">
-                    <div class="p-6 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <i class="fas fa-globe-americas text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
-                            <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-laptop-code text-xl"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Web Vulnerability Assessment</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-grow">
-                            Black-box tested the Juice Shop app, found and exploited SQLi, XSS, broken access control, and more using Burp Suite. Wrote clear remediation steps for developers.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
-                            <span>#WebSec</span>
-                            <span>#BurpSuite</span>
-                            <span>#OWASP</span>
                         </div>
                     </div>
                 </div>
@@ -603,8 +619,8 @@
                             <p class="text-green-400 font-mono mt-2">Aspiring Penetration Tester</p>
                         </div>
                         <div class="mt-4 md:mt-0 text-right text-sm text-gray-400 font-mono">
-                            <p>city, country</p>
-                            <p>email@example.com</p>
+                            <p>Ontario, Canada</p>
+                            <p>kathail@pm.me</p>
                             <p>github.com/Kathail</p>
                         </div>
                     </div>
@@ -617,44 +633,25 @@
                     <div>
                         <h3 class="text-lg font-bold border-b-2 border-gray-300 pb-1 mb-3 uppercase tracking-wide">Professional Experience</h3>
                         
-                        <!-- Investigator (Water/Wastewater) -->
+                        <!-- Northern Sweet Supply Entry -->
                         <div class="mb-4">
-                            <h4 class="font-bold">Investigator – Water & Wastewater Utility</h4>
-                            <p class="text-gray-700 italic">Municipal Utility District | 2022 – Present</p>
-                            <p class="text-sm text-gray-600 mt-1">
-                                First responder for operational compliance and security-related incidents across critical infrastructure systems.
-                            </p>
+                            <h4 class="font-bold">Full Stack Engineer</h4>
+                            <p class="text-gray-700 italic">Northern Sweet Supply | Contract</p>
                             <ul class="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
-                                <li>Investigate anomalies in SCADA telemetry, flow data, and HMI alerts to determine root cause of operational failures.</li>
-                                <li>Coordinate immediate response actions with engineering teams (system isolation, manual overrides) to contain incidents.</li>
-                                <li>Document incidents and maintain strict chain-of-custody for regulatory reporting.</li>
-                                <li>Daily exposure to real-world SCADA, PLC, RTU, and control-system data constraints.</li>
+                                <li><strong>Full-Cycle Development:</strong> Architected and shipped a custom B2B lead generation ecosystem, handling both data acquisition (Python backend) and data visualization (Web frontend).</li>
+                                <li><strong>Backend Engineering:</strong> Built <em>NorthScrape</em>, a multi-threaded ETL engine that aggregates disjointed market data into structured formats, significantly reducing manual research time.</li>
+                                <li><strong>Frontend Architecture:</strong> Developed a serverless, offline-first dashboard enabling sales teams to filter and analyze lead data in zero-connectivity field environments.</li>
+                                <li><strong>Operational Impact:</strong> Streamlined the sales pipeline by automating data entry and providing real-time intelligence tools.</li>
                             </ul>
                         </div>
 
-                        <!-- Northern Sweet Supply -->
-                        <div class="mb-4">
-                            <h4 class="font-bold">Full Stack Engineer (Contract)</h4>
-                            <p class="text-gray-700 italic">Northern Sweet Supply</p>
-                            <p class="text-sm text-gray-600 mt-1">
-                                Developed NorthScrape, a proprietary lead generation system to optimize field sales operations.
-                            </p>
-                            <ul class="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
-                                <li>Built a multi-threaded Python ETL engine using concurrent.futures to scrape and enrich B2B data.</li>
-                                <li>Designed a serverless, offline-capable dashboard using Vanilla JS and Tailwind CSS for field use in zero-coverage zones.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Freelance Web Developer -->
+                        <!-- Watersome.ca Entry -->
                         <div class="mb-4">
                             <h4 class="font-bold">Freelance Web Developer</h4>
-                            <p class="text-gray-700 italic">Local Business Client</p>
-                            <p class="text-sm text-gray-600 mt-1">
-                                Delivered a professional, high-performance brand platform with a focus on modern security standards.
-                            </p>
+                            <p class="text-gray-700 italic">Critical Infrastructure Contractor</p>
                             <ul class="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
-                                <li>Engineered a hand-crafted responsive layout without frameworks, achieving perfect 100/100 Core Web Vitals scores.</li>
-                                <li>Implemented security hardening including custom Cloudflare WAF rules and strict HTTP headers (CSP, HSTS).</li>
+                                <li><strong>Performance Engineering:</strong> Engineered a hand-crafted, framework-free responsive website achieving perfect 100/100 Core Web Vitals scores for optimal SEO and user experience.</li>
+                                <li><strong>Security Hardening:</strong> Configured production environment with custom Cloudflare WAF rules, strict Content Security Policy (CSP), and HSTS headers to mitigate common web vectors.</li>
                             </ul>
                         </div>
                     </div>
@@ -684,7 +681,7 @@
                         </div>
                     </div>
                     
-                     <!-- Practical Experience (Replcaing Formal Work) -->
+                      <!-- Practical Experience (Replcaing Formal Work) -->
                     <div>
                         <h3 class="text-lg font-bold border-b-2 border-gray-300 pb-1 mb-3 uppercase tracking-wide">Virtual Labs & Learning Paths</h3>
                         
@@ -731,50 +728,44 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Practical Labs Sub-section -->
-                        <div class="mb-4">
-                            <h4 class="font-bold text-md mb-2 text-gray-800">Practical Labs & CTFs</h4>
-                            <p class="text-sm text-gray-600 mb-3">
-                                Hands-on exploitation of vulnerable machines and security tool practice.
-                            </p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-700">
-                                <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Room: Blue (EternalBlue)</div>
-                                <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Room: OWASP Top 10</div>
-                                <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Machine: HTB Meow</div>
-                                <div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Machine: HTB Fawn</div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Education -->
                     <div>
                         <h3 class="text-lg font-bold border-b-2 border-gray-300 pb-1 mb-3 uppercase tracking-wide">Independent Education</h3>
                         
-                        <!-- New Entry -->
+                        <!-- Independent Ventures (Combined Forums + Game Server) -->
                         <div class="mb-4">
-                             <h4 class="font-bold">Web Development & Programming</h4>
-                             <p class="text-gray-700 italic">The Odin Project & Codecademy</p>
-                             <p class="text-sm text-gray-600 mt-1">
-                                 Completed curriculum covering HTML5, CSS3, JavaScript (ES6+), and Python structures. Built responsive web applications and scripts.
-                             </p>
-                        </div>
-
-                        <!-- Server Admin Entry -->
-                        <div class="mb-4">
-                            <h4 class="font-bold">Server Administration & Ecommerce</h4>
-                            <p class="text-gray-700 italic">Community Projects</p>
-                            <p class="text-sm text-gray-600 mt-1">
-                                Helped maintain private game servers using <strong>VMware</strong> virtualization. Managed <strong>MySQL</strong> databases and utilized <strong>PuTTY (SSH)</strong> and <strong>FTP</strong> for remote server configuration and file management. Gained practical experience with <strong>Shopify</strong> platform management.
-                            </p>
+                            <h4 class="font-bold">Digital Asset Management & Systems Administration</h4>
+                            <p class="text-gray-700 italic">Independent Ventures</p>
+                            <ul class="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
+                                <li><strong>Platform Integrity & Security:</strong> Served as Lead Administrator for a legacy MMORPG project. Analyzed server logs and user behavior to detect logic exploits, packet manipulation, and unauthorized automation (bots).</li>
+                                <li><strong>Community Governance:</strong> Led a distributed moderation team for a high-traffic forum. Established enforcement SOPs, handled dispute resolution, and maintained platform compliance.</li>
+                                <li><strong>Growth & Exit Strategy:</strong> Executed SEO and engagement strategies for niche web communities, scaling traffic metrics to negotiate successful profitable exits (asset sales).</li>
+                                <li><strong>Infrastructure:</strong> Maintained private game servers using VMware virtualization and secured remote administration channels (SSH/SFTP).</li>
+                            </ul>
                        </div>
 
+                        <!-- Web Dev Entry (Expanded) -->
+                        <div class="mb-4">
+                             <h4 class="font-bold">Full Stack Development & Automation</h4>
+                             <p class="text-gray-700 italic">The Odin Project & Codecademy</p>
+                             <ul class="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
+                                 <li><strong>Rigorous Curriculum:</strong> Completed The Odin Project’s full-stack path, mastering DOM manipulation, asynchronous JavaScript (Promises/Async-Await), and API integration without relying on frameworks.</li>
+                                 <li><strong>Project Implementation:</strong> Architected and deployed responsive web applications and Python automation tools, implementing version control (Git) and clean code principles.</li>
+                                 <li><strong>Tooling Proficiency:</strong> Gained proficiency in Linux command line workflows, package management (npm/pip), and development environment configuration.</li>
+                             </ul>
+                        </div>
+
+                        <!-- Security Learning Entry (Expanded) -->
                         <div>
-                            <h4 class="font-bold">Self-Directed Security Learning</h4>
+                            <h4 class="font-bold">Offensive Security Research & CTF</h4>
                             <p class="text-gray-700 italic">2023 - Present</p>
-                            <p class="text-sm text-gray-600 mt-1">
-                                Focused on practical application of cybersecurity concepts through documentation reading, home labs, and open-source intelligence.
-                            </p>
+                            <ul class="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
+                                <li><strong>CTF Operations:</strong> Active participant on <strong>TryHackMe</strong> (Top 10%) and <strong>HackTheBox</strong>, consistently compromising retired machines to sharpen enumeration and privilege escalation methodologies.</li>
+                                <li><strong>Vulnerability Research:</strong> Regularly analyze disclosed Bug Bounty write-ups (HackerOne/Bugcrowd) to deconstruct real-world exploit chains, logic flaws, and business email compromise (BEC) tactics.</li>
+                                <li><strong>Lab Simulation:</strong> Engineered a virtualized home lab environment to simulate enterprise attacks, practicing lateral movement, Active Directory exploitation, and defensive hardening.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
