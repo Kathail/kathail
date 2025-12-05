@@ -97,47 +97,64 @@
             }
         }
 
-        /* PRINT STYLES - Hides everything except resume and formats it for A4/PDF */
+        /* PRINT STYLES - Optimized to remove blank pages */
         @media print {
-            body * {
-                visibility: hidden;
-            }
-            #resume, #resume * {
-                visibility: visible;
-            }
-            #resume {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                background: white;
-                color: black;
-            }
-            .glass-panel, body {
-                background: none !important;
-            }
-            /* Hide the download button during print */
-            .print:hidden {
+            /* Use display:none instead of visibility:hidden to remove elements from layout flow */
+            .crt-overlay, nav, #home, #about, #setup, #projects, footer, .print\:hidden, script {
                 display: none !important;
             }
-            /* Ensure text is black for printing */
-            .text-gray-300, .text-gray-400, .text-white {
+
+            body {
+                background: white !important;
+                background-image: none !important;
+                margin: 0;
+                padding: 0;
+                overflow: visible;
+            }
+
+            #resume {
+                display: block !important;
+                position: relative !important; /* Keep in flow */
+                width: 100%;
+                margin: 0 !important;
+                padding: 0 !important; /* Remove section padding */
+                background: white;
+                color: black;
+                border: none !important;
+            }
+
+            /* Reset internal containers to use full width and remove shadows */
+            #resume .max-w-4xl {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            #resume .bg-gray-100 {
+                background: white !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+
+            /* Ensure text contrast */
+            .text-gray-300, .text-gray-400, .text-white, .text-gray-500, .text-gray-600, .text-gray-700 {
                 color: black !important;
             }
+
             .bg-gray-800 {
                 background-color: #333 !important;
                 color: white !important;
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
             }
+            
             .text-green-400 {
-                color: #166534 !important; /* Darker green for print readability */
+                color: #166534 !important; /* Darker green for white paper */
             }
+
             a {
                 text-decoration: none;
-                color: black;
+                color: black !important;
             }
         }
     </style>
@@ -205,7 +222,7 @@
                             <a href="#projects" class="bg-green-600 hover:bg-green-500 text-black font-bold py-2 px-6 rounded transition-all hover:shadow-[0_0_15px_rgba(74,222,128,0.5)]">
                                 <i class="fas fa-terminal mr-2"></i>View Projects
                             </a>
-                            <a href="#contact" class="border border-green-500 text-green-500 hover:bg-green-900/30 font-bold py-2 px-6 rounded transition-all">
+                            <a href="mailto:kathail@pm.me" class="border border-green-500 text-green-500 hover:bg-green-900/30 font-bold py-2 px-6 rounded transition-all">
                                 <i class="fas fa-envelope mr-2"></i>Contact Me
                             </a>
                         </div>
@@ -672,8 +689,8 @@
                         </div>
                         <div class="mt-4 md:mt-0 text-right text-sm text-gray-400 font-mono">
                             <p>Ontario, Canada</p>
-                            <p>kathail@pm.me</p>
-                            <p>github.com/Kathail</p>
+                            <a href="mailto:kathail@pm.me" class="block hover:text-green-400 transition-colors">kathail@pm.me</a>
+                            <a href="https://github.com/Kathail" target="_blank" class="block hover:text-green-400 transition-colors">github.com/Kathail</a>
                         </div>
                     </div>
                 </div>
