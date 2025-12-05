@@ -89,6 +89,7 @@
             font-size: 10px;
             line-height: 10px;
             white-space: pre;
+            font-family: monospace;
         }
         @media (min-width: 768px) {
             .ascii-art {
@@ -153,7 +154,7 @@
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button onclick="toggleMenu()" class="text-green-500 hover:text-white focus:outline-none">
+                    <button onclick="toggleMenu()" class="text-green-500 hover:text-white focus:outline-none" aria-label="Toggle menu">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -252,9 +253,11 @@
             
             <!-- Neofetch Style Block -->
             <div class="max-w-4xl mx-auto glass-panel p-6 rounded-lg font-mono text-sm md:text-base overflow-x-auto mb-16">
-                <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                    <!-- ASCII Logo -->
-                    <div class="text-cachy-blue ascii-art hidden md:block select-none">
+                <div class="flex flex-col md:flex-row gap-8 items-start justify-center">
+                    <!-- ASCII Art Column -->
+                    <div class="hidden md:flex flex-col items-center justify-start space-y-8 text-cachy-blue select-none w-1/3 pt-2 text-left">
+                        <!-- Logo -->
+                        <div class="ascii-art">
        /\\
       /  \\
      /    \\      <span class="text-gray-500"># CachyOS</span>
@@ -262,10 +265,23 @@
    /    ,,    \\
   /    |  |    \\
  /_-''    ''-_\\
+                        </div>
+                        
+                        <!-- Lock Art (New) -->
+                        <div class="ascii-art text-green-500 opacity-80">
+   .---.
+  /     \     <span class="text-gray-500"># SECURE</span>
+  | (_) |     <span class="text-gray-500"># SHELL</span>
+  |     |
+  |---. |
+  |   | |
+  |   | |
+  |___|_|
+                        </div>
                     </div>
                     
                     <!-- Specs Info -->
-                    <div class="w-full">
+                    <div class="w-full md:w-2/3 md:border-l md:border-gray-800 md:pl-8">
                         <div class="mb-4 text-gray-400">kathail@desktop</div>
                         <div class="mb-4">-----------------</div>
                         <div class="grid grid-cols-1 gap-1 text-gray-300">
@@ -372,7 +388,7 @@
                     </div>
                 </div>
 
-                <!-- Operating Systems (Restored) -->
+                <!-- Operating Systems -->
                 <div class="glass-panel p-6 rounded-lg hover:border-green-500 transition-colors">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center">
                         <i class="fab fa-linux mr-3"></i>Systems & OS
@@ -411,7 +427,7 @@
                     </div>
                 </div>
 
-                <!-- Languages & Development (Restored) -->
+                <!-- Languages & Development -->
                 <div class="glass-panel p-6 rounded-lg hover:border-green-500 transition-colors">
                     <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center">
                         <i class="fas fa-code mr-3"></i>Programming & Dev
@@ -465,7 +481,7 @@
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-chart-line text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <a href="https://github.com/Kathail/NorthScrape-Dashboard" target="_blank" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+                                <a href="https://github.com/Kathail/NorthScrape-Dashboard" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white" aria-label="View on GitHub"><i class="fab fa-github text-xl"></i></a>
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">NorthScrape Dashboard</h3>
@@ -486,7 +502,7 @@
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-robot text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <a href="https://github.com/Kathail/NorthScrape" target="_blank" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+                                <a href="https://github.com/Kathail/NorthScrape" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white" aria-label="View on GitHub"><i class="fab fa-github text-xl"></i></a>
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">NorthScrape Data Engine</h3>
@@ -507,7 +523,8 @@
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-shield-alt text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-link text-xl"></i></a>
+                                <!-- No link wrapper for dead link -->
+                                <span class="text-gray-600 cursor-not-allowed" aria-label="Private Project"><i class="fas fa-link text-xl"></i></span>
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Secure Service Platform</h3>
@@ -528,7 +545,8 @@
                         <div class="flex justify-between items-start mb-4">
                             <i class="fas fa-bug text-4xl text-green-600 group-hover:text-green-400 transition-colors"></i>
                             <div class="flex space-x-2">
-                                <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-file-code text-xl"></i></a>
+                                <!-- No link wrapper for dead link -->
+                                <span class="text-gray-600 cursor-not-allowed" aria-label="Code snippet"><i class="fas fa-file-code text-xl"></i></span>
                             </div>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Python Port Scanner</h3>
@@ -561,7 +579,7 @@
                         </div>
                         <div class="mt-4 md:mt-0 text-right text-sm text-gray-400 font-mono">
                             <p>Greater Sudbury, ON, Canada</p>
-                            <p>email@example.com</p>
+                            <p>kathail@pm.me</p>
                             <p>github.com/Kathail</p>
                         </div>
                     </div>
@@ -574,21 +592,6 @@
                     <div>
                         <h3 class="text-lg font-bold border-b-2 border-gray-300 pb-1 mb-3 uppercase tracking-wide">Professional Experience</h3>
                         
-                        <!-- Investigator (Water/Wastewater) -->
-                        <div class="mb-4">
-                            <h4 class="font-bold">Investigator – Water & Wastewater Utility</h4>
-                            <p class="text-gray-700 italic">Municipal Utility District | 2022 – Present</p>
-                            <p class="text-sm text-gray-600 mt-1">
-                                First responder for operational compliance and security-related incidents across critical infrastructure systems.
-                            </p>
-                            <ul class="list-disc list-inside text-sm text-gray-600 mt-1 space-y-1">
-                                <li>Investigate anomalies in SCADA telemetry, flow data, and HMI alerts to determine root cause of operational failures.</li>
-                                <li>Coordinate immediate response actions with engineering teams (system isolation, manual overrides) to contain incidents.</li>
-                                <li>Document incidents and maintain strict chain-of-custody for regulatory reporting.</li>
-                                <li>Daily exposure to real-world SCADA, PLC, RTU, and control-system data constraints.</li>
-                            </ul>
-                        </div>
-
                         <!-- Northern Sweet Supply -->
                         <div class="mb-4">
                             <h4 class="font-bold">Full Stack Engineer (Contract)</h4>
@@ -626,7 +629,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold">THM: Pre-Security</h4>
-                                <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-QY1H9Q6TAV.pdf" target="_blank" class="text-sm text-blue-600 hover:underline">
+                                <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-QY1H9Q6TAV.pdf" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:underline">
                                     <i class="fas fa-external-link-alt mr-1"></i>View Certificate
                                 </a>
                             </div>
@@ -661,20 +664,32 @@
                         <h3 class="text-lg font-bold border-b-2 border-gray-300 pb-1 mb-3 uppercase tracking-wide">Independent Education</h3>
                         
                         <div class="mb-4">
-                             <h4 class="font-bold">Web Development & Programming</h4>
-                             <p class="text-gray-700 italic">The Odin Project & Codecademy</p>
-                             <p class="text-sm text-gray-600 mt-1">
-                                 Completed curriculum covering HTML5, CSS3, JavaScript (ES6+), and Python structures.
-                             </p>
+                             <h4 class="font-bold">Server Administration & Virtualization</h4>
+                             <p class="text-gray-700 italic">Private Infrastructure Projects</p>
+                             <ul class="list-none text-sm text-gray-600 mt-1 space-y-1">
+                                <li><i class="fas fa-server text-gray-500 mr-1"></i> Deployed and maintained private game servers using <strong>VMware</strong> virtualization.</li>
+                                <li><i class="fas fa-terminal text-gray-500 mr-1"></i> Configured remote Linux environments via SSH (PuTTY), managed <strong>MySQL</strong> databases, and handled service uptime.</li>
+                            </ul>
+                       </div>
+
+                       <div class="mb-4">
+                            <h4 class="font-bold">Community Administration & Traffic Optimization</h4>
+                            <p class="text-gray-700 italic">Digital Asset Management</p>
+                            <ul class="list-none text-sm text-gray-600 mt-1 space-y-1">
+                                <li><i class="fas fa-users text-gray-500 mr-1"></i> Served as Administrator for high-traffic niche communities, implementing strategies to boost user engagement and unique hits.</li>
+                                <li><i class="fas fa-chart-line text-gray-500 mr-1"></i> Managed content moderation policies and optimized site performance for asset flipping/resale.</li>
+                            </ul>
                         </div>
 
                         <div class="mb-4">
-                            <h4 class="font-bold">Server Administration</h4>
-                            <p class="text-gray-700 italic">Community Projects</p>
-                            <p class="text-sm text-gray-600 mt-1">
-                                Managed Linux game servers using VMware. Configured MySQL databases, SSH access, and firewall rules.
-                            </p>
-                       </div>
+                             <h4 class="font-bold">Full Stack Development Studies</h4>
+                             <p class="text-gray-700 italic">The Odin Project & Codecademy</p>
+                             <ul class="list-none text-sm text-gray-600 mt-1 space-y-1">
+                                <li><i class="fas fa-code text-gray-500 mr-1"></i> Completed comprehensive curriculum covering Semantic HTML5, CSS3, and ES6+ JavaScript.</li>
+                                <li><i class="fas fa-tools text-gray-500 mr-1"></i> Developed custom <strong>Userscripts</strong> to automate repetitive workflows at current employment.</li>
+                                <li><i class="fas fa-laptop-code text-gray-500 mr-1"></i> Built and deployed various web applications for personal use and friends.</li>
+                             </ul>
+                        </div>
                     </div>
                 </div>
                 
@@ -692,13 +707,13 @@
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-mono text-white mb-6">Initialize Communication</h2>
             <div class="flex justify-center space-x-8 mb-8">
-                <a href="https://github.com/Kathail" target="_blank" class="text-gray-400 hover:text-green-500 text-3xl transition-transform hover:-translate-y-1"><i class="fab fa-github"></i></a>
-                <a href="https://tryhackme.com/p/Kathail" target="_blank" class="text-gray-400 hover:text-red-500 text-3xl transition-transform hover:-translate-y-1"><i class="fas fa-bug"></i></a>
-                <a href="mailto:email@example.com" class="text-gray-400 hover:text-green-500 text-3xl transition-transform hover:-translate-y-1"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Kathail" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-500 text-3xl transition-transform hover:-translate-y-1" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://tryhackme.com/p/Kathail" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-red-500 text-3xl transition-transform hover:-translate-y-1" aria-label="TryHackMe"><i class="fas fa-bug"></i></a>
+                <a href="mailto:kathail@pm.me" class="text-gray-400 hover:text-green-500 text-3xl transition-transform hover:-translate-y-1" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
             <p class="text-gray-600 font-mono text-sm">
                 Designed & Built by <span class="text-green-500">Kathail</span>. 
-                <br>System Status: <span class="text-green-500">Online</span>
+                <br>System Status: <span class="text-green-500 animate-pulse">Online</span>
             </p>
         </div>
     </footer>
