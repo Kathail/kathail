@@ -63,12 +63,15 @@
             border-radius: 4px;
         }
 
+        /* Fixed cursor blink for mobile/dark reader stability */
         .terminal-cursor::after {
-            content: '_';
-            animation: blink 1s step-end infinite;
+            content: '█';
+            animation: blink 1.2s step-end infinite;
+            opacity: 0.7;
         }
 
         @keyframes blink {
+            0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
 
@@ -95,6 +98,19 @@
                 font-size: 12px;
                 line-height: 12px;
             }
+        }
+
+        /* Terminal Input Styling */
+        #cmd-input {
+            background: transparent;
+            border: none;
+            color: transparent;
+            caret-color: transparent; /* Hide default caret, use custom block */
+            outline: none;
+            width: 1px;
+            height: 1px;
+            position: absolute;
+            opacity: 0;
         }
 
         /* PRINT STYLES - Optimized to remove blank pages */
@@ -213,7 +229,7 @@
                 </div>
                 <!-- Terminal Content -->
                 <div class="p-6 md:p-10 font-mono text-green-400 min-h-[300px]">
-                    <div id="typewriter" class="text-lg md:text-xl leading-relaxed whitespace-pre-wrap"></div>
+                    <div id="typewriter" class="text-lg md:text-xl leading-relaxed whitespace-pre-wrap break-words"></div>
                     <span class="terminal-cursor text-green-400 text-xl"></span>
                     
                     <div class="mt-8 opacity-0 transition-opacity duration-1000" id="hero-buttons">
@@ -280,7 +296,7 @@
             <h2 class="text-3xl font-bold text-white mb-12 font-mono text-center"><span class="text-green-500">02.</span> Battle Station & Skills</h2>
             
             <!-- Improved Terminal Window Style Block -->
-            <div class="max-w-4xl mx-auto glass-panel rounded-lg overflow-hidden font-mono text-sm md:text-base mb-16 shadow-lg shadow-green-900/20 border border-gray-800">
+            <div class="max-w-4xl mx-auto glass-panel rounded-lg overflow-hidden font-mono text-sm md:text-base mb-16 shadow-lg shadow-green-900/20 border border-gray-800" onclick="document.getElementById('cmd-input').focus()">
                 <!-- Terminal Title Bar -->
                 <div class="bg-gray-900 px-4 py-2 border-b border-green-900/30 flex items-center justify-between">
                     <div class="flex space-x-2">
@@ -293,12 +309,12 @@
                 </div>
                 
                 <!-- Terminal Body -->
-                <div class="p-6 md:p-8 text-gray-300 bg-black/40">
-                    <div class="mb-6">
+                <div class="p-6 md:p-8 text-gray-300 bg-black/40 relative">
+                    <div class="mb-4">
                         <span class="text-green-500">kathail@desktop</span>:<span class="text-blue-500">~</span>$ fetch_specs --verbose
                     </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mb-6">
                         <div class="group hover:text-white transition-colors">
                             <span class="text-cachy-blue font-bold w-24 inline-block"><i class="fab fa-linux mr-2 w-5 text-center"></i>OS</span>: CachyOS x86_64
                         </div>
@@ -319,20 +335,62 @@
                         </div>
                     </div>
 
-                    <div class="mt-6 pt-4 border-t border-gray-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                        <!-- Color Palette strip -->
-                        <div class="flex gap-3">
-                            <div class="w-8 h-4 bg-black rounded-sm"></div>
-                            <div class="w-8 h-4 bg-red-500 rounded-sm"></div>
-                            <div class="w-8 h-4 bg-green-500 rounded-sm"></div>
-                            <div class="w-8 h-4 bg-yellow-500 rounded-sm"></div>
-                            <div class="w-8 h-4 bg-blue-500 rounded-sm"></div>
-                            <div class="w-8 h-4 bg-purple-500 rounded-sm"></div>
-                            <div class="w-8 h-4 bg-cyan-500 rounded-sm"></div>
-                            <div class="w-8 h-4 bg-white rounded-sm"></div>
+                    <!-- Training Status Tracker -->
+                    <div class="mb-6 p-2 border border-green-900/50 bg-green-900/10 rounded">
+                        <div class="text-green-400 font-bold mb-1"><i class="fas fa-crosshairs mr-2"></i>Current Training Status</div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs">
+                            <div>TryHackMe: <span class="text-white">Top 10%</span> <span class="text-green-500">√</span></div>
+                            <div>HackTheBox: <span class="text-white">Active</span></div>
+                            <div>Cert Goal: <span class="text-yellow-500">OSCP (Q1 2026)</span></div>
                         </div>
-                        <div class="text-green-500 text-xs animate-pulse">
-                            <i class="fas fa-circle text-[10px] mr-2"></i>SYSTEM ONLINE
+                    </div>
+
+                    <!-- Live System Monitor -->
+                    <div class="mb-4 hidden md:block font-mono text-xs border-t border-gray-800 pt-4">
+                        <div class="text-gray-500 mb-2">// SYSTEM RESOURCES</div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-cachy-blue">CPU_LOAD</span>
+                                    <span class="text-green-400 animate-pulse">12%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 h-1 rounded overflow-hidden">
+                                    <div class="bg-cachy-blue h-1 w-[12%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-purple-400">MEM_ALLOC</span>
+                                    <span class="text-green-400">4.2 GB</span>
+                                </div>
+                                <div class="w-full bg-gray-800 h-1 rounded overflow-hidden">
+                                    <div class="bg-purple-500 h-1 w-[25%]"></div>
+                                </div>
+                            </div>
+                            <div class="col-span-2">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-yellow-500">NET_TRAFFIC</span>
+                                    <span class="text-white text-[10px]">TX: 142 KB/s | RX: 1.2 MB/s</span>
+                                </div>
+                                <div class="flex space-x-1 h-2 items-end">
+                                    <div class="w-1 bg-green-500 h-[20%] animate-pulse"></div>
+                                    <div class="w-1 bg-green-500 h-[40%] animate-pulse" style="animation-delay: 0.1s"></div>
+                                    <div class="w-1 bg-green-500 h-[60%] animate-pulse" style="animation-delay: 0.2s"></div>
+                                    <div class="w-1 bg-green-500 h-[30%] animate-pulse" style="animation-delay: 0.3s"></div>
+                                    <div class="w-1 bg-green-500 h-[80%] animate-pulse" style="animation-delay: 0.15s"></div>
+                                    <div class="w-1 bg-green-500 h-[50%] animate-pulse" style="animation-delay: 0.25s"></div>
+                                    <div class="w-1 bg-green-500 h-[90%] animate-pulse" style="animation-delay: 0.05s"></div>
+                                    <div class="w-1 bg-green-500 h-[45%] animate-pulse" style="animation-delay: 0.35s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-gray-800">
+                        <div class="flex items-center">
+                            <span class="text-green-500 mr-2">kathail@desktop</span>:<span class="text-blue-500 mr-2">~</span>$ 
+                            <span id="cmd-output" class="text-white ml-1"></span><span class="terminal-cursor text-white"></span>
+                            <input type="text" id="cmd-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                         </div>
                     </div>
                 </div>
@@ -558,6 +616,9 @@
                         <p class="text-gray-400 text-sm mb-4 flex-grow">
                             Developed an offline-first analytics dashboard for Northern Sweet Supply. Features client-side CSV parsing, drag-and-drop file handling, and instant data filtering using Vanilla JS. Zero-dependency architecture ensuring functionality in low-connectivity field environments.
                         </p>
+                        <div class="mb-4">
+                            <a href="#" class="inline-block text-xs border border-green-600 text-green-500 px-2 py-1 rounded hover:bg-green-900/30 transition-colors"><i class="fas fa-book-open mr-1"></i>Read Case Study</a>
+                        </div>
                         <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
                             <span>#JavaScript</span>
                             <span>#OfflineFirst</span>
@@ -579,6 +640,9 @@
                         <p class="text-gray-400 text-sm mb-4 flex-grow">
                             Engineered a multi-threaded Python ETL pipeline using `concurrent.futures`. Automates the scraping, cleaning, and aggregation of B2B lead data for Northern Sweet Supply. Includes robust error handling and structured CSV export logic for the frontend dashboard.
                         </p>
+                        <div class="mb-4">
+                            <a href="#" class="inline-block text-xs border border-green-600 text-green-500 px-2 py-1 rounded hover:bg-green-900/30 transition-colors"><i class="fas fa-book-open mr-1"></i>Read Case Study</a>
+                        </div>
                         <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
                             <span>#Python</span>
                             <span>#ETL</span>
@@ -621,6 +685,9 @@
                         <p class="text-gray-400 text-sm mb-4 flex-grow">
                             Wrote a multi-threaded TCP port scanner in Python using the socket library. Handles timeouts gracefully and grabs service banners. Built while working through offensive security labs.
                         </p>
+                        <div class="mb-4">
+                            <a href="#" class="inline-block text-xs border border-green-600 text-green-500 px-2 py-1 rounded hover:bg-green-900/30 transition-colors"><i class="fas fa-book-open mr-1"></i>Read Technical Report</a>
+                        </div>
                         <div class="flex flex-wrap gap-2 text-xs font-mono text-green-400 mt-auto">
                             <span>#Python</span>
                             <span>#Sockets</span>
@@ -727,26 +794,38 @@
 
                     <!-- Certifications (Crucial for beginners) -->
                     <div>
-                        <h3 class="text-lg font-bold border-b-2 border-gray-300 pb-1 mb-3 uppercase tracking-wide">Certifications</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <h4 class="font-bold">CompTIA Security+ (SY0-701)</h4>
-                                <p class="text-sm text-yellow-600"><i class="fas fa-circle-notch fa-spin mr-1"></i>In Progress</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">THM: Pre-Security</h4>
-                                <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-QY1H9Q6TAV.pdf" target="_blank" class="text-sm text-blue-600 hover:underline">
-                                    <i class="fas fa-external-link-alt mr-1"></i>View Certificate
-                                </a>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">THM: Jr Penetration Tester</h4>
-                                <p class="text-sm text-yellow-600"><i class="fas fa-circle-notch fa-spin mr-1"></i>In Progress</p>
-                            </div>
-                             <div>
-                                <h4 class="font-bold">Google Cybersecurity Certificate</h4>
-                                <p class="text-sm text-yellow-600"><i class="fas fa-circle-notch fa-spin mr-1"></i>In Progress</p>
-                            </div>
+                        <h3 class="text-lg font-bold border-b-2 border-gray-300 pb-1 mb-3 uppercase tracking-wide">Certifications & Awards</h3>
+                        <!-- LS Style Cert Block -->
+                        <div class="bg-gray-800 text-gray-300 p-4 rounded font-mono text-sm mb-4 overflow-x-auto">
+                            <div class="text-gray-500 mb-2">kathail@certs:~$ ls -la ./achievements</div>
+                            <table class="w-full text-left border-collapse">
+                                <tbody>
+                                    <tr class="hover:bg-gray-700/50">
+                                        <td class="pr-4 text-green-400">drwx------</td>
+                                        <td class="pr-4">1 kathail</td>
+                                        <td class="pr-4 text-blue-400">CompTIA_Security+</td>
+                                        <td class="text-yellow-500">[In Progress]</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-700/50">
+                                        <td class="pr-4 text-green-400">-r--------</td>
+                                        <td class="pr-4">1 kathail</td>
+                                        <td class="pr-4 text-blue-400">THM_PreSecurity.pdf</td>
+                                        <td><a href="#" class="hover:underline">View_Cert</a></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-700/50">
+                                        <td class="pr-4 text-green-400">drwx------</td>
+                                        <td class="pr-4">1 kathail</td>
+                                        <td class="pr-4 text-blue-400">Google_Cyber_Cert</td>
+                                        <td class="text-yellow-500">[In Progress]</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-700/50">
+                                        <td class="pr-4 text-green-400">-r--------</td>
+                                        <td class="pr-4">1 kathail</td>
+                                        <td class="pr-4 text-blue-400">THM_JrPentester</td>
+                                        <td class="text-yellow-500">[In Progress]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     
@@ -898,6 +977,60 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Easter Egg Logic
+        const cmdInput = document.getElementById('cmd-input');
+        const cmdOutput = document.getElementById('cmd-output');
+        
+        cmdInput.addEventListener('input', function(e) {
+            cmdOutput.textContent = this.value;
+        });
+
+        cmdInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const command = this.value.trim().toLowerCase();
+                
+                // Common root commands for the easter egg
+                const triggerCommands = ['sudo su', 'su root', 'su', 'sudo -i', 'sudo -s'];
+                
+                if (triggerCommands.includes(command)) {
+                    // Create overlay container
+                    const overlay = document.createElement('div');
+                    overlay.className = 'fixed inset-0 z-[60] bg-black flex flex-col items-center justify-center';
+                    
+                    // Inject YouTube Iframe (autoplay enabled)
+                    // Note: Modern browsers block audio autoplay unless user interacted with page (typing 'enter' counts!)
+                    overlay.innerHTML = `
+                        <div class="relative w-full h-full max-w-4xl max-h-screen aspect-video">
+                            <iframe 
+                                class="w-full h-full"
+                                src="https://www.youtube.com/embed/sZJDYlxkM-c?autoplay=1&controls=0&modestbranding=1&rel=0" 
+                                frameborder="0" 
+                                allow="autoplay; encrypted-media" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <button onclick="this.parentElement.remove()" class="absolute top-8 right-8 z-[70] bg-red-600 text-white font-mono font-bold px-6 py-3 border-2 border-red-800 hover:bg-red-500 shadow-[0_0_15px_rgba(220,38,38,0.7)] animate-pulse">
+                            [ TERMINATE SESSION ]
+                        </button>
+                    `;
+                    
+                    document.body.appendChild(overlay);
+                    
+                    // Clear terminal
+                    this.value = '';
+                    cmdOutput.textContent = '';
+                    
+                } else if (command === 'help') {
+                    alert('Available commands: fetch_specs, sudo su');
+                    this.value = '';
+                    cmdOutput.textContent = '';
+                } else {
+                    this.value = '';
+                    cmdOutput.textContent = '';
+                }
+            }
         });
     </script>
 </body>
