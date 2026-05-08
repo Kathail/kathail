@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kathail — Software solutions</title>
     <meta name="description" content="A one-person software practice based in Northern Ontario. Custom web apps, internal tools, and online platforms for the operators and infrastructure up here." />
-    <meta name="theme-color" content="#b5a892" />
+    <meta name="theme-color" content="#faf6ec" />
     <meta property="og:title" content="Kathail — Software solutions" />
     <meta property="og:description" content="A one-person software practice based in Northern Ontario. Building the software that off-the-shelf tools don't fit." />
     <meta property="og:type" content="website" />
@@ -30,18 +30,18 @@
     </script>
     <style>
       :root {
-        --bg: #b5a892;             /* warm linen / driftwood taupe — medium tone */
-        --bg-deep: #a89b85;        /* deeper for callouts */
-        --ink: #2a2018;            /* warm dark, not pure black */
-        --ink-soft: #4d4334;
-        --ink-faint: #6e6354;
-        --rule: #988b75;           /* visible against medium bg */
-        --accent: #8c3a26;         /* deeper brick red, reads against medium */
-        --accent-light: #a64431;
-        --sage: #4f6a3a;
-        --sage-bg: rgba(79, 106, 58, 0.22);
-        --amber: #7a5818;
-        --amber-bg: rgba(122, 88, 24, 0.20);
+        --bg: #faf6ec;             /* warm cream, easy on the eyes */
+        --bg-deep: #f3ecd8;
+        --ink: #1f1c17;            /* warm dark */
+        --ink-soft: #4a443a;
+        --ink-faint: #8a8170;
+        --rule: #e6dec9;
+        --accent: #a02c20;         /* deep brick red */
+        --accent-deep: #862218;
+        --sage: #5d7a48;           /* live status */
+        --sage-bg: rgba(93, 122, 72, 0.13);
+        --amber: #a07426;          /* beta status */
+        --amber-bg: rgba(160, 116, 38, 0.13);
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html, body {
@@ -49,7 +49,7 @@
         color: var(--ink);
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
         font-size: 17px;
-        line-height: 1.65;
+        line-height: 1.6;
         -webkit-font-smoothing: antialiased;
       }
       body {
@@ -58,14 +58,14 @@
         padding: 56px 24px 80px;
       }
       a {
-        color: var(--accent);
-        text-decoration-color: rgba(140, 58, 38, 0.4);
+        color: var(--accent-deep);
+        text-decoration-color: rgba(134, 34, 24, 0.4);
         text-underline-offset: 0.18em;
         transition: color 150ms ease, text-decoration-color 150ms ease;
       }
       a:hover {
-        color: var(--accent-light);
-        text-decoration-color: var(--accent-light);
+        color: var(--accent);
+        text-decoration-color: var(--accent);
       }
       strong { font-weight: 600; color: var(--ink); }
       ::selection { background: var(--accent); color: var(--bg); }
@@ -84,7 +84,6 @@
         font-weight: 700;
         font-size: 1.1rem;
         letter-spacing: -0.01em;
-        color: var(--ink);
       }
       header .name .dot { color: var(--accent); }
       header .loc {
@@ -103,9 +102,9 @@
         animation: pulse 2.6s ease-out infinite;
       }
       @keyframes pulse {
-        0%   { box-shadow: 0 0 0 0 rgba(79, 106, 58, 0.5); }
-        70%  { box-shadow: 0 0 0 8px rgba(79, 106, 58, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(79, 106, 58, 0); }
+        0%   { box-shadow: 0 0 0 0 rgba(93, 122, 72, 0.5); }
+        70%  { box-shadow: 0 0 0 8px rgba(93, 122, 72, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(93, 122, 72, 0); }
       }
 
       h1 {
@@ -114,21 +113,21 @@
         line-height: 1.22;
         letter-spacing: -0.01em;
         margin-bottom: 1rem;
-        color: var(--ink);
       }
       h1 .accent { color: var(--accent); }
 
       h2 {
-        font-size: 1.15rem;
+        font-size: 1.18rem;
         font-weight: 700;
         margin-top: 3.5rem;
         margin-bottom: 1.25rem;
-        color: var(--ink);
+        padding-bottom: 0.4rem;
+        border-bottom: 2px solid var(--accent);
+        display: inline-block;
       }
       h3 {
         font-size: 1.05rem;
         font-weight: 700;
-        color: var(--ink);
         margin-bottom: 0.4rem;
       }
       p { margin-bottom: 1rem; color: var(--ink-soft); }
@@ -145,8 +144,8 @@
         display: inline-block;
         padding: 0.65rem 1.25rem;
         background: var(--accent);
-        color: #f5ecd9;
-        font-weight: 600;
+        color: #fff;
+        font-weight: 500;
         font-size: 0.98rem;
         text-decoration: none;
         border: 1.5px solid var(--accent);
@@ -154,9 +153,9 @@
         transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
       }
       .btn:hover {
-        background: var(--accent-light);
-        border-color: var(--accent-light);
-        color: #f5ecd9;
+        background: var(--accent-deep);
+        border-color: var(--accent-deep);
+        color: #fff;
         text-decoration: none;
         transform: translateY(-1px);
       }
@@ -166,7 +165,7 @@
         border-color: var(--rule);
       }
       .btn.secondary:hover {
-        background: rgba(42, 32, 24, 0.06);
+        background: rgba(31, 28, 23, 0.04);
         border-color: var(--ink);
         color: var(--ink);
       }
@@ -202,7 +201,6 @@
         font-size: 0.98rem;
         color: var(--ink-soft);
       }
-      .cta-line strong { color: var(--ink); }
       .cta-line a { font-weight: 600; }
 
       footer {
@@ -216,8 +214,8 @@
         flex-wrap: wrap;
         gap: 0.5rem;
       }
-      footer a { color: var(--ink-faint); text-decoration-color: transparent; }
-      footer a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+      footer a { color: var(--ink-faint); }
+      footer a:hover { color: var(--accent); }
 
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { animation: none !important; transition: none !important; }
