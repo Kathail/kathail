@@ -44,6 +44,8 @@
         --rule-strong: rgba(26, 26, 26, 0.25);
         --accent: #a02c20;
         --moss: #3f7a3a;
+        --bay: #2c66a0;
+        --ochre: #c4922a;
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html, body {
@@ -210,6 +212,13 @@
         letter-spacing: 0.05em;
         font-weight: 700;
       }
+      /* Per-project tint for numeral + link underline */
+      .case--nss .case-num { color: var(--accent); }
+      .case--cw  .case-num { color: var(--bay); }
+      .case--nw  .case-num { color: var(--ochre); }
+      .case--nss .case-link a { text-decoration-color: var(--accent); }
+      .case--cw  .case-link a { text-decoration-color: var(--bay); }
+      .case--nw  .case-link a { text-decoration-color: var(--ochre); }
       .case-status {
         font-size: 0.7rem;
         letter-spacing: 0.1em;
@@ -334,7 +343,7 @@
       <section class="section">
         <h2>Current work</h2>
 
-        <article class="case">
+        <article class="case case--nss">
           <div class="case-head">
             <span class="case-num">01</span>
             <h3 class="case-name">Northern Sweet Supply</h3>
@@ -351,7 +360,7 @@
           <div class="case-link"><a href="https://northernsweetsupply.ca">northernsweetsupply.ca →</a></div>
         </article>
 
-        <article class="case">
+        <article class="case case--cw">
           <div class="case-head">
             <span class="case-num">02</span>
             <h3 class="case-name">CityWater</h3>
@@ -367,7 +376,7 @@
           <div class="case-link"><a href="https://citywater.ca">citywater.ca (in beta) →</a></div>
         </article>
 
-        <article class="case">
+        <article class="case case--nw">
           <div class="case-head">
             <span class="case-num">03</span>
             <h3 class="case-name">NorthWatch</h3>
