@@ -43,7 +43,6 @@
         --rule: rgba(26, 26, 26, 0.1);
         --rule-strong: rgba(26, 26, 26, 0.25);
         --accent: #a02c20;
-        --status: #2e7a2e;
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html, body {
@@ -110,23 +109,6 @@
         font-size: 1.05rem;
         line-height: 1.6;
       }
-      .status {
-        margin-top: 1.5rem;
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--ink-faint);
-      }
-      .status-bullet {
-        display: inline-block;
-        width: 6px;
-        height: 6px;
-        background: var(--status);
-        border-radius: 50%;
-        margin-right: 0.5rem;
-        vertical-align: 2px;
-      }
-
       .section { margin-top: 4.5rem; }
 
       /* Case studies */
@@ -216,12 +198,17 @@
 
       <section class="hero">
         <p>
-          The infrastructure up here is real — small water utilities, regional distributors,
-          public services running on the same systems as anywhere else — and the off-the-shelf
-          tools rarely fit. I build the ones that do.
+          I build custom software for small water utilities, regional distributors, and public
+          services in Northern Ontario.
         </p>
-        <p class="status">
-          <span class="status-bullet"></span>Available for new work
+        <p>
+          A lot of teams up here are still working with paper, spreadsheets, or tools built for
+          much bigger organizations. I make practical web apps that actually fit how things run
+          day-to-day in smaller operations.
+        </p>
+        <p>
+          Open to new projects. If you're dealing with workflows that don't quite fit the usual
+          software, feel free to reach out.
         </p>
       </section>
 
@@ -236,14 +223,10 @@
           <div class="case-status">In production · March 2026–</div>
           <div class="case-body">
             <p>
-              <strong>Problem.</strong> B2B candy distribution in Northern Ontario still runs on
-              phone calls, fax orders, and Excel route sheets. Independent retailers want catalog
-              access; sales reps need route planning that isn't a stack of paper.
-            </p>
-            <p>
-              <strong>Approach.</strong> One platform covering customer-facing catalog and
-              ordering, field-sales tools, route planning, and back-office operations — shaped
-              around how the business actually runs day-to-day.
+              B2B candy distribution in Northern Ontario still runs on phone calls, faxes, and
+              Excel sheets. I built a single platform that handles customer ordering, route
+              planning for sales reps, and back-office operations — shaped around how the
+              business actually works.
             </p>
           </div>
           <div class="case-link"><a href="https://northernsweetsupply.ca">northernsweetsupply.ca →</a></div>
@@ -257,15 +240,9 @@
           <div class="case-status">In beta · 2026–</div>
           <div class="case-body">
             <p>
-              <strong>Problem.</strong> Small municipal water utilities track inspections, work
-              orders, and asset records on paper, spreadsheets, or enterprise GIS suites built for
-              cities ten times their size.
-            </p>
-            <p>
-              <strong>Approach.</strong> A focused public-works platform sized for crews of one to
-              twenty. Mobile-first work orders, inspection forms shaped to real field workflows,
-              and an asset register built around the realities of small-town water, sewer, and
-              storm infrastructure.
+              Small municipal water utilities often track inspections, work orders, and assets on
+              paper or in systems built for much larger cities. CityWater is a simpler,
+              mobile-friendly platform designed for smaller crews and real field workflows.
             </p>
           </div>
           <div class="case-link"><a href="https://citywater.ca">citywater.ca (in beta) →</a></div>
@@ -279,14 +256,10 @@
           <div class="case-status">In beta · 2026–</div>
           <div class="case-body">
             <p>
-              <strong>Problem.</strong> Road conditions, Hydro One outages, and severe-weather
-              alerts for Northern Ontario live across half a dozen government and utility sites.
-              Residents and travelers piece it together one tab at a time.
-            </p>
-            <p>
-              <strong>Approach.</strong> A public status hub that aggregates road conditions,
-              outages, and weather alerts into a single dashboard — built for the realities of
-              travel and life north of the French River.
+              Road conditions, outages, and weather alerts for Northern Ontario are scattered
+              across multiple government and utility sites. NorthWatch brings the important
+              updates into one straightforward dashboard built for how people actually live and
+              travel up here.
             </p>
           </div>
           <div class="case-link"><a href="https://web-production-99ffdf.up.railway.app">northwatch (in beta) →</a></div>
@@ -297,32 +270,32 @@
         <h2>Services</h2>
         <div class="services">
           <div class="service">
-            <h3 class="service-name">Custom web applications</h3>
+            <h3 class="service-name">Custom web apps</h3>
             <div class="service-desc">
-              Full-stack builds for businesses that have outgrown spreadsheets, paper, or
-              off-the-shelf software that doesn't fit. Discovery, design, build, and the first
-              year of operation.
+              I build full-stack tools when spreadsheets and off-the-shelf software stop working
+              for you. I handle discovery, design, building, and the first year of keeping it
+              running.
             </div>
           </div>
           <div class="service">
-            <h3 class="service-name">Internal tools &amp; line-of-business software</h3>
+            <h3 class="service-name">Internal tools &amp; workflows</h3>
             <div class="service-desc">
-              Workflow automation, dashboards, and operational tooling tailored to how a specific
-              team actually works — not how a generic SaaS thinks they should.
+              Dashboards, work order systems, inspection forms, and operational tools built
+              around how your specific team actually works — not generic templates.
             </div>
           </div>
           <div class="service">
-            <h3 class="service-name">Product engineering</h3>
+            <h3 class="service-name">Smaller platforms &amp; products</h3>
             <div class="service-desc">
-              SaaS and platform builds, including ongoing operation. I work with founders and
-              operators to ship the first version, then keep it running and evolving.
+              If you need something customer-facing or multi-user (like an ordering system or
+              public dashboard), I can take it from idea to a live product and keep it running.
             </div>
           </div>
           <div class="service">
-            <h3 class="service-name">Technical advisory</h3>
+            <h3 class="service-name">Technical advice</h3>
             <div class="service-desc">
-              Architecture review, technology selection, and second-opinion engagements for teams
-              without senior engineering on staff.
+              Architecture reviews, tech recommendations, or a second opinion when you don't
+              have senior engineering support in-house.
             </div>
           </div>
         </div>
@@ -331,8 +304,9 @@
       <section class="section about">
         <h2>About</h2>
         <p>
-          One person. Full-stack web applications, internal tools, and SaaS products for small
-          and mid-sized operators — and I keep running the ones I own.
+          One-person operation based in Northern Ontario. I build and maintain custom web
+          applications, internal tools, and smaller platforms for teams that need software
+          shaped to how they actually work.
         </p>
       </section>
 
