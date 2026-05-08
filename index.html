@@ -99,6 +99,14 @@
         flex-wrap: wrap;
         gap: 0.5rem;
       }
+      /* Email in the strip stays lowercase so it reads as an address, not a yell */
+      .coords a {
+        text-transform: none;
+        letter-spacing: normal;
+        color: var(--ink);
+        text-decoration-thickness: 1.5px;
+      }
+      .coords a:hover { color: var(--accent); }
 
       .meta {
         font-size: 0.72rem;
@@ -314,7 +322,7 @@
     <main>
       <div class="coords">
         <span>46° N · 81° W</span>
-        <span>Boreal · GMT−5</span>
+        <a href="mailto:kathail@pm.me">kathail@pm.me →</a>
       </div>
 
       <header>
@@ -336,7 +344,7 @@
         </p>
         <p>
           <span class="moss-dot"></span>Open to new projects. If you're dealing with workflows
-          that don't quite fit the usual software, feel free to reach out.
+          that don't quite fit the usual software, <a href="mailto:kathail@pm.me">feel free to reach out</a>.
         </p>
       </section>
 
