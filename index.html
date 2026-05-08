@@ -90,6 +90,7 @@
         --amber-bg: rgba(160, 116, 38, 0.13);
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
       html, body {
         background: var(--bg);
         color: var(--ink);
@@ -101,8 +102,32 @@
       body {
         max-width: 660px;
         margin: 0 auto;
-        padding: 56px 24px 80px;
+        padding: clamp(32px, 6vw, 56px) clamp(20px, 4vw, 24px) clamp(48px, 8vw, 80px);
       }
+
+      /* Keyboard focus: visible accent ring */
+      *:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+      .btn:focus-visible { outline-offset: 4px; }
+
+      /* Skip-to-content (visible only when focused) */
+      .skip-link {
+        position: absolute;
+        top: -50px;
+        left: 16px;
+        background: var(--ink);
+        color: var(--bg);
+        padding: 0.6rem 1rem;
+        z-index: 100;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 4px;
+        transition: top 150ms ease;
+      }
+      .skip-link:focus { top: 16px; color: var(--bg); }
       a {
         color: var(--accent-deep);
         text-decoration-color: rgba(134, 34, 24, 0.4);
@@ -165,7 +190,7 @@
       h2 {
         font-size: 1.18rem;
         font-weight: 700;
-        margin-top: 3.5rem;
+        margin-top: clamp(2.5rem, 5vw, 3.5rem);
         margin-bottom: 1.25rem;
         padding-bottom: 0.4rem;
         border-bottom: 2px solid var(--accent);
@@ -187,7 +212,10 @@
         flex-wrap: wrap;
       }
       .btn {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
         padding: 0.65rem 1.25rem;
         background: var(--accent);
         color: #fff;
@@ -219,8 +247,12 @@
       .item {
         padding: 1.25rem 0;
         border-top: 1px solid var(--rule);
+        transition: border-top-color 200ms ease;
       }
       .item:last-child { border-bottom: 1px solid var(--rule); }
+      .item:hover { border-top-color: var(--ink-soft); }
+      .item:hover h3 { color: var(--accent); }
+      .item h3 { transition: color 200ms ease; }
       .item-head {
         display: flex;
         align-items: center;
@@ -270,17 +302,32 @@
       footer a { color: var(--ink-faint); }
       footer a:hover { color: var(--accent); }
 
+      /* Tighten things on phones */
+      @media (max-width: 480px) {
+        h1 { font-size: 1.5rem; }
+        h2 { font-size: 1.08rem; margin-top: 2.25rem; }
+        .item { padding: 1rem 0; }
+        .actions { gap: 0.5rem; }
+        .actions .btn { flex: 1 1 auto; min-width: 140px; }
+        .item-head { gap: 0.4rem; }
+        .pill { font-size: 0.72rem; }
+        .cta-line { padding: 0.85rem 1rem; }
+      }
+
       @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
         *, *::before, *::after { animation: none !important; transition: none !important; }
       }
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header>
       <span class="name">Kathail<span class="dot">.</span></span>
       <span class="loc"><span class="loc-dot"></span>Northern Ontario · open to new work</span>
     </header>
 
+    <main id="main">
     <h1>I build software for small operators in <span class="accent">Northern Ontario</span>.</h1>
     <p class="lede">
       Custom web apps, internal tools, and customer-facing platforms for water utilities,
@@ -352,6 +399,7 @@
     <div class="actions">
       <a class="btn" href="mailto:kathail@pm.me">kathail@pm.me</a>
     </div>
+    </main>
 
     <footer>
       <div class="footer-left">
