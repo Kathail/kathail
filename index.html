@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kathail — Software solutions</title>
     <meta name="description" content="A one-person software practice based in Northern Ontario. Custom web apps, internal tools, and online platforms for the operators and infrastructure up here." />
-    <meta name="theme-color" content="#fbf6ed" />
+    <meta name="theme-color" content="#ffffff" />
     <meta property="og:title" content="Kathail — Software solutions" />
     <meta property="og:description" content="A one-person software practice based in Northern Ontario. Building the software that off-the-shelf tools don't fit." />
     <meta property="og:type" content="website" />
@@ -17,12 +17,6 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="canonical" href="https://kathail.ca/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap"
-      rel="stylesheet"
-    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -36,465 +30,192 @@
     </script>
     <style>
       :root {
-        --cream: #fbf6ed;
-        --cream-deep: #f4ecdb;
-        --surface: #ffffff;
-        --ink: #2a2521;
-        --ink-soft: #564f48;
-        --ink-faint: #8a8278;
-        --accent: #c46a4f;        /* warm terracotta */
-        --accent-deep: #a85638;
-        --sage: #7a8a5e;          /* status: live */
-        --amber: #c89f54;         /* status: beta */
-        --rule: rgba(42, 37, 33, 0.10);
-        --rule-soft: rgba(42, 37, 33, 0.05);
-        --shadow-sm: 0 1px 2px rgba(42, 37, 33, 0.04);
-        --shadow-md: 0 4px 14px rgba(42, 37, 33, 0.06), 0 1px 3px rgba(42, 37, 33, 0.05);
-        --shadow-cta: 0 2px 8px rgba(196, 106, 79, 0.2);
+        --bg: #ffffff;
+        --ink: #1a1a1a;
+        --ink-soft: #4a4a4a;
+        --ink-faint: #888888;
+        --rule: #e6e6e6;
+        --link: #1a4d8c;
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html, body {
-        background: var(--cream);
+        background: var(--bg);
         color: var(--ink);
-        font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
-        font-size: 16px;
-        line-height: 1.65;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
         -webkit-font-smoothing: antialiased;
       }
       body {
-        max-width: 760px;
+        max-width: 640px;
         margin: 0 auto;
-        padding: clamp(28px, 6vw, 56px) 24px clamp(48px, 8vw, 96px);
+        padding: 56px 24px 80px;
       }
-      a {
-        color: var(--accent-deep);
-        text-decoration-color: rgba(168, 86, 56, 0.4);
-        text-underline-offset: 0.2em;
-        transition: color 150ms ease, text-decoration-color 150ms ease;
-      }
-      a:hover {
-        color: var(--accent);
-        text-decoration-color: var(--accent);
-      }
-      strong { font-weight: 600; color: var(--ink); }
-      ::selection { background: var(--accent); color: var(--cream); }
+      a { color: var(--link); text-underline-offset: 0.18em; }
+      a:hover { text-decoration: underline; }
+      strong { font-weight: 600; }
 
-      /* ── Header ── */
-      .header {
+      header {
+        margin-bottom: 3rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--rule);
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem 0;
-        margin-bottom: 3rem;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
-      .brand {
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: 1.4rem;
-        font-weight: 600;
-        letter-spacing: -0.01em;
+      header .name { font-weight: 700; font-size: 1.05rem; }
+      header .loc  { color: var(--ink-faint); font-size: 0.92rem; }
+
+      h1 {
+        font-size: 1.7rem;
+        font-weight: 700;
+        line-height: 1.25;
+        margin-bottom: 1rem;
       }
-      .brand .dot { color: var(--accent); }
-      .location {
+      h2 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+      }
+      h3 {
+        font-size: 1.02rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+      p { margin-bottom: 1rem; color: var(--ink-soft); }
+      p.lede { color: var(--ink); font-size: 1.08rem; }
+      p:last-child { margin-bottom: 0; }
+
+      .actions {
+        margin: 1.5rem 0 0;
+        display: flex;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-block;
+        padding: 0.6rem 1.1rem;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 500;
+        text-decoration: none;
+        border: 1px solid var(--ink);
+      }
+      .btn:hover { background: #000; text-decoration: none; }
+      .btn.secondary {
+        background: transparent;
+        color: var(--ink);
+      }
+      .btn.secondary:hover { background: #f5f5f5; }
+
+      .item {
+        padding: 1.25rem 0;
+        border-top: 1px solid var(--rule);
+      }
+      .item:last-child { border-bottom: 1px solid var(--rule); }
+      .item .meta {
         font-size: 0.88rem;
         color: var(--ink-faint);
-      }
-      .location .moss-dot {
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        background: var(--sage);
-        border-radius: 50%;
-        margin-right: 0.5rem;
-        vertical-align: middle;
-        animation: pulse 2.6s ease-out infinite;
-      }
-      @keyframes pulse {
-        0%   { box-shadow: 0 0 0 0 rgba(122, 138, 94, 0.5); }
-        70%  { box-shadow: 0 0 0 9px rgba(122, 138, 94, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(122, 138, 94, 0); }
-      }
-
-      /* ── Hero ── */
-      .hero {
-        margin-bottom: 5rem;
-      }
-      .hero h1 {
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: clamp(2.1rem, 6.5vw, 3.4rem);
-        font-weight: 500;
-        line-height: 1.12;
-        letter-spacing: -0.02em;
-        color: var(--ink);
-        margin-bottom: 1.5rem;
-      }
-      .hero h1 .accent { color: var(--accent); }
-      .lede {
-        font-size: clamp(1.05rem, 1.8vw, 1.18rem);
-        line-height: 1.6;
-        color: var(--ink-soft);
-        max-width: 38em;
-        margin-bottom: 2rem;
-      }
-      .hero-actions {
-        display: flex;
-        gap: 0.75rem;
-        flex-wrap: wrap;
-      }
-
-      /* ── Buttons ── */
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.85rem 1.5rem;
-        border-radius: 999px;
-        font-size: 0.98rem;
-        font-weight: 500;
-        text-decoration: none;
-        transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-        white-space: nowrap;
-      }
-      .btn-primary {
-        background: var(--accent);
-        color: #fff;
-        box-shadow: var(--shadow-cta);
-      }
-      .btn-primary:hover {
-        background: var(--accent-deep);
-        color: #fff;
-        text-decoration: none;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 16px rgba(196, 106, 79, 0.3);
-      }
-      .btn-outline {
-        color: var(--ink);
-        border: 1.5px solid var(--rule);
-        background: transparent;
-      }
-      .btn-outline:hover {
-        border-color: var(--ink);
-        color: var(--ink);
-        text-decoration: none;
-        background: rgba(42, 37, 33, 0.03);
-      }
-      .btn-large {
-        font-size: 1.05rem;
-        padding: 1rem 1.8rem;
-      }
-
-      /* ── Sections ── */
-      .section {
-        margin-bottom: 5rem;
-      }
-      .section h2 {
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: clamp(1.6rem, 3.5vw, 2rem);
-        font-weight: 500;
-        letter-spacing: -0.01em;
-        color: var(--ink);
         margin-bottom: 0.5rem;
       }
-      .section-lede {
-        font-size: 1rem;
-        color: var(--ink-faint);
-        margin-bottom: 2rem;
-      }
 
-      /* ── Services ── */
-      .services {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 1.25rem;
-      }
-      .service-card {
-        background: var(--surface);
-        padding: 1.5rem;
-        border-radius: 14px;
-        border: 1px solid var(--rule);
-        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-      }
-      .service-card:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
-        border-color: rgba(196, 106, 79, 0.3);
-      }
-      .service-card h3 {
-        font-family: 'DM Sans', sans-serif;
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: var(--ink);
-        margin-bottom: 0.6rem;
-      }
-      .service-card p {
+      .cta-line {
+        margin-top: 1.5rem;
+        font-size: 0.98rem;
         color: var(--ink-soft);
-        font-size: 0.96rem;
       }
+      .cta-line a { font-weight: 500; }
 
-      /* ── Section CTA card ── */
-      .section-cta {
-        margin-top: 2.5rem;
-        padding: 1.75rem 1.75rem;
-        background: var(--cream-deep);
-        border-radius: 14px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-      }
-      .section-cta p {
-        color: var(--ink-soft);
-        font-size: 1.02rem;
-        margin: 0;
-      }
-      .section-cta strong {
-        color: var(--ink);
-        font-weight: 600;
-      }
-
-      /* ── Work cards ── */
-      .work {
-        display: grid;
-        gap: 1.25rem;
-      }
-      .work-card {
-        background: var(--surface);
-        padding: 1.75rem;
-        border-radius: 14px;
-        border: 1px solid var(--rule);
-        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-      }
-      .work-card:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
-        border-color: rgba(196, 106, 79, 0.3);
-      }
-      .work-head {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        flex-wrap: wrap;
-        margin-bottom: 1rem;
-      }
-      .work-head h3 {
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: var(--ink);
-        margin-right: 0.25rem;
-      }
-      .status-pill {
-        display: inline-block;
-        font-size: 0.78rem;
-        font-weight: 500;
-        padding: 0.3rem 0.7rem;
-        border-radius: 999px;
-        letter-spacing: 0.01em;
-      }
-      .status-pill--live {
-        background: rgba(122, 138, 94, 0.15);
-        color: #5a6a40;
-      }
-      .status-pill--beta {
-        background: rgba(200, 159, 84, 0.18);
-        color: #8a6f30;
-      }
-      .work-card p {
-        color: var(--ink-soft);
-        margin-bottom: 1.1rem;
-      }
-      .work-link {
-        font-weight: 500;
-        text-decoration: none;
-        color: var(--accent-deep);
-      }
-      .work-link:hover { color: var(--accent); }
-
-      /* ── About ── */
-      .about p {
-        font-size: 1.05rem;
-        color: var(--ink-soft);
-        max-width: 36em;
-      }
-
-      /* ── Contact section ── */
-      .contact-section {
-        margin: 6rem 0 2rem;
-        padding: 3rem 2rem;
-        background: linear-gradient(180deg, var(--cream-deep) 0%, var(--cream) 100%);
-        border-radius: 20px;
-        text-align: center;
-      }
-      .contact-section h2 {
-        font-family: 'Fraunces', Georgia, serif;
-        font-size: clamp(1.8rem, 4vw, 2.4rem);
-        font-weight: 500;
-        margin-bottom: 1rem;
-      }
-      .contact-section p {
-        color: var(--ink-soft);
-        max-width: 30em;
-        margin: 0 auto 2rem;
-        font-size: 1.05rem;
-      }
-
-      /* ── Footer ── */
       footer {
         margin-top: 4rem;
-        padding-top: 2rem;
+        padding-top: 1.5rem;
         border-top: 1px solid var(--rule);
         font-size: 0.88rem;
         color: var(--ink-faint);
         display: flex;
         justify-content: space-between;
-        align-items: center;
         flex-wrap: wrap;
         gap: 0.5rem;
-      }
-      footer a {
-        color: var(--ink-faint);
-        text-decoration-color: transparent;
-      }
-      footer a:hover { color: var(--accent); text-decoration-color: var(--accent); }
-
-      /* Reduced motion */
-      @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after {
-          animation: none !important;
-          transition: none !important;
-        }
       }
     </style>
   </head>
   <body>
-    <main>
-      <header class="header">
-        <div class="brand">Kathail<span class="dot">.</span></div>
-        <div class="location">
-          <span class="moss-dot"></span>Northern Ontario
-        </div>
-      </header>
+    <header>
+      <span class="name">Kathail</span>
+      <span class="loc">Northern Ontario</span>
+    </header>
 
-      <section class="hero">
-        <h1>Software shaped to how you <span class="accent">actually work</span>.</h1>
-        <p class="lede">
-          I build practical web apps, internal tools, and customer-facing platforms for small
-          water utilities, regional distributors, and public services in Northern Ontario.
-          One person, real software, no enterprise bloat.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:kathail@pm.me">Start a project →</a>
-          <a class="btn btn-outline" href="#services">What I build ↓</a>
-        </div>
-      </section>
+    <h1>I build software for small operators in Northern Ontario.</h1>
+    <p class="lede">
+      Custom web apps, internal tools, and customer-facing platforms for water utilities,
+      regional distributors, and public services. One person, real software, no enterprise
+      bloat.
+    </p>
 
-      <section class="section" id="services">
-        <h2>What I build</h2>
-        <p class="section-lede">A short menu — most projects mix a few of these.</p>
-        <div class="services">
-          <div class="service-card">
-            <h3>Custom web apps</h3>
-            <p>
-              Full-stack tools when spreadsheets and off-the-shelf software stop working for you.
-              I handle discovery, design, building, and the first year of keeping it running.
-            </p>
-          </div>
-          <div class="service-card">
-            <h3>Internal tools &amp; workflows</h3>
-            <p>
-              Dashboards, work order systems, inspection forms, and operational tools built
-              around how your specific team actually works — not generic templates.
-            </p>
-          </div>
-          <div class="service-card">
-            <h3>Smaller platforms &amp; products</h3>
-            <p>
-              Customer-facing or multi-user products like ordering systems or public dashboards.
-              I take it from idea to a live product and keep it running.
-            </p>
-          </div>
-          <div class="service-card">
-            <h3>Technical advice</h3>
-            <p>
-              Architecture reviews, tech recommendations, or a second opinion when you don't
-              have senior engineering support in-house.
-            </p>
-          </div>
-        </div>
+    <div class="actions">
+      <a class="btn" href="mailto:kathail@pm.me">Email me</a>
+      <a class="btn secondary" href="#services">What I build</a>
+    </div>
 
-        <div class="section-cta">
-          <p><strong>Have something in mind?</strong> I'll help you scope it, even if I'm not the right fit to build it.</p>
-          <a class="btn btn-primary" href="mailto:kathail@pm.me">Tell me about it →</a>
-        </div>
-      </section>
+    <h2 id="services">Services</h2>
 
-      <section class="section" id="work">
-        <h2>What I'm building</h2>
-        <p class="section-lede">Three projects currently shipping or in beta.</p>
-        <div class="work">
-          <article class="work-card">
-            <div class="work-head">
-              <h3>Northern Sweet Supply</h3>
-              <span class="status-pill status-pill--live">In production · since March 2026</span>
-            </div>
-            <p>
-              Wholesale candy distribution in Northern Ontario still runs on phone calls, faxes,
-              and Excel sheets. I built a single platform that handles customer ordering, route
-              planning for sales reps, and back-office operations — shaped around how the
-              business actually works.
-            </p>
-            <a class="work-link" href="https://northernsweetsupply.ca">northernsweetsupply.ca →</a>
-          </article>
-          <article class="work-card">
-            <div class="work-head">
-              <h3>CityWater</h3>
-              <span class="status-pill status-pill--beta">In beta · 2026</span>
-            </div>
-            <p>
-              Small municipal water utilities often track inspections, work orders, and assets
-              on paper or in systems built for much larger cities. CityWater is a simpler,
-              mobile-friendly platform designed for smaller crews and real field workflows.
-            </p>
-            <a class="work-link" href="https://citywater.ca">citywater.ca →</a>
-          </article>
-          <article class="work-card">
-            <div class="work-head">
-              <h3>NorthWatch</h3>
-              <span class="status-pill status-pill--beta">In beta · 2026</span>
-            </div>
-            <p>
-              Road conditions, outages, and weather alerts for Northern Ontario are scattered
-              across multiple government and utility sites. NorthWatch brings the important
-              updates into one straightforward dashboard built for how people actually live and
-              travel up here.
-            </p>
-            <a class="work-link" href="https://web-production-99ffdf.up.railway.app">northwatch (in beta) →</a>
-          </article>
-        </div>
-      </section>
+    <div class="item">
+      <h3>Custom web apps</h3>
+      <p>Full-stack tools when spreadsheets and off-the-shelf software stop working for you. I handle discovery, design, building, and the first year of keeping it running.</p>
+    </div>
+    <div class="item">
+      <h3>Internal tools and workflows</h3>
+      <p>Dashboards, work order systems, inspection forms, and operational tools built around how your specific team actually works — not generic templates.</p>
+    </div>
+    <div class="item">
+      <h3>Smaller platforms and products</h3>
+      <p>Customer-facing or multi-user products like ordering systems or public dashboards. I take it from idea to a live product and keep it running.</p>
+    </div>
+    <div class="item">
+      <h3>Technical advice</h3>
+      <p>Architecture reviews, tech recommendations, or a second opinion when you don't have senior engineering support in-house.</p>
+    </div>
 
-      <section class="section about" id="about">
-        <h2>About</h2>
-        <p>
-          One-person operation based in Northern Ontario. I build and maintain custom web
-          applications, internal tools, and smaller platforms for teams that need software
-          shaped to how they actually work — and I keep running the ones I own.
-        </p>
-      </section>
+    <p class="cta-line">
+      Have something in mind? <a href="mailto:kathail@pm.me">Tell me about your project →</a>
+    </p>
 
-      <section class="contact-section" id="contact">
-        <h2>Let's talk</h2>
-        <p>
-          Got a workflow that doesn't fit the usual software, or a project that needs a real
-          person to build it? Drop me a line — I read every email myself.
-        </p>
-        <a class="btn btn-primary btn-large" href="mailto:kathail@pm.me">kathail@pm.me</a>
-      </section>
-    </main>
+    <h2>What I'm building</h2>
+
+    <div class="item">
+      <h3>Northern Sweet Supply</h3>
+      <div class="meta">In production · since March 2026</div>
+      <p>Wholesale candy distribution in Northern Ontario still runs on phone calls, faxes, and Excel sheets. I built a single platform that handles customer ordering, route planning for sales reps, and back-office operations — shaped around how the business actually works.</p>
+      <p><a href="https://northernsweetsupply.ca">northernsweetsupply.ca →</a></p>
+    </div>
+    <div class="item">
+      <h3>CityWater</h3>
+      <div class="meta">In beta · 2026</div>
+      <p>Small municipal water utilities often track inspections, work orders, and assets on paper or in systems built for much larger cities. CityWater is a simpler, mobile-friendly platform designed for smaller crews and real field workflows.</p>
+      <p><a href="https://citywater.ca">citywater.ca (in beta) →</a></p>
+    </div>
+    <div class="item">
+      <h3>NorthWatch</h3>
+      <div class="meta">In beta · 2026</div>
+      <p>Road conditions, outages, and weather alerts for Northern Ontario are scattered across multiple government and utility sites. NorthWatch brings the important updates into one straightforward dashboard built for how people actually live and travel up here.</p>
+      <p><a href="https://web-production-99ffdf.up.railway.app">northwatch (in beta) →</a></p>
+    </div>
+
+    <h2>About</h2>
+    <p>One-person operation based in Northern Ontario. I build and maintain custom web applications, internal tools, and smaller platforms for teams that need software shaped to how they actually work — and I keep running the ones I own.</p>
+
+    <h2>Get in touch</h2>
+    <p>Got a workflow that doesn't fit the usual software, or a project that needs a real person to build it? Drop me a line. I read every email myself.</p>
+    <div class="actions">
+      <a class="btn" href="mailto:kathail@pm.me">kathail@pm.me</a>
+    </div>
 
     <footer>
-      <div>© 2026 Kathail · Northern Ontario</div>
-      <div><a href="mailto:kathail@pm.me">kathail@pm.me</a></div>
+      <span>© 2026 Kathail · Northern Ontario</span>
+      <span><a href="mailto:kathail@pm.me">kathail@pm.me</a></span>
     </footer>
   </body>
 </html>
