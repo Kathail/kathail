@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kathail — Software solutions</title>
     <meta name="description" content="A one-person software practice based in Northern Ontario. Custom web apps, internal tools, and online platforms for the operators and infrastructure up here." />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#faf6ec" />
     <meta property="og:title" content="Kathail — Software solutions" />
     <meta property="og:description" content="A one-person software practice based in Northern Ontario. Building the software that off-the-shelf tools don't fit." />
     <meta property="og:type" content="website" />
@@ -30,12 +30,18 @@
     </script>
     <style>
       :root {
-        --bg: #ffffff;
-        --ink: #1a1a1a;
-        --ink-soft: #4a4a4a;
-        --ink-faint: #888888;
-        --rule: #e6e6e6;
-        --link: #1a4d8c;
+        --bg: #faf6ec;             /* warm cream, easy on the eyes */
+        --bg-deep: #f3ecd8;
+        --ink: #1f1c17;            /* warm dark */
+        --ink-soft: #4a443a;
+        --ink-faint: #8a8170;
+        --rule: #e6dec9;
+        --accent: #a02c20;         /* deep brick red */
+        --accent-deep: #862218;
+        --sage: #5d7a48;           /* live status */
+        --sage-bg: rgba(93, 122, 72, 0.13);
+        --amber: #a07426;          /* beta status */
+        --amber-bg: rgba(160, 116, 38, 0.13);
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html, body {
@@ -47,17 +53,26 @@
         -webkit-font-smoothing: antialiased;
       }
       body {
-        max-width: 640px;
+        max-width: 660px;
         margin: 0 auto;
         padding: 56px 24px 80px;
       }
-      a { color: var(--link); text-underline-offset: 0.18em; }
-      a:hover { text-decoration: underline; }
-      strong { font-weight: 600; }
+      a {
+        color: var(--accent-deep);
+        text-decoration-color: rgba(134, 34, 24, 0.4);
+        text-underline-offset: 0.18em;
+        transition: color 150ms ease, text-decoration-color 150ms ease;
+      }
+      a:hover {
+        color: var(--accent);
+        text-decoration-color: var(--accent);
+      }
+      strong { font-weight: 600; color: var(--ink); }
+      ::selection { background: var(--accent); color: var(--bg); }
 
       header {
-        margin-bottom: 3rem;
-        padding-bottom: 1.5rem;
+        margin-bottom: 2.5rem;
+        padding-bottom: 1.25rem;
         border-bottom: 1px solid var(--rule);
         display: flex;
         justify-content: space-between;
@@ -65,25 +80,55 @@
         flex-wrap: wrap;
         gap: 0.5rem;
       }
-      header .name { font-weight: 700; font-size: 1.05rem; }
-      header .loc  { color: var(--ink-faint); font-size: 0.92rem; }
+      header .name {
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: -0.01em;
+      }
+      header .name .dot { color: var(--accent); }
+      header .loc {
+        color: var(--ink-faint);
+        font-size: 0.92rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .loc-dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: var(--sage);
+        border-radius: 50%;
+        animation: pulse 2.6s ease-out infinite;
+      }
+      @keyframes pulse {
+        0%   { box-shadow: 0 0 0 0 rgba(93, 122, 72, 0.5); }
+        70%  { box-shadow: 0 0 0 8px rgba(93, 122, 72, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(93, 122, 72, 0); }
+      }
 
       h1 {
-        font-size: 1.7rem;
+        font-size: clamp(1.7rem, 4.5vw, 2.1rem);
         font-weight: 700;
-        line-height: 1.25;
+        line-height: 1.22;
+        letter-spacing: -0.01em;
         margin-bottom: 1rem;
       }
+      h1 .accent { color: var(--accent); }
+
       h2 {
-        font-size: 1.15rem;
+        font-size: 1.18rem;
         font-weight: 700;
-        margin-top: 3rem;
-        margin-bottom: 1rem;
+        margin-top: 3.5rem;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 2px solid var(--accent);
+        display: inline-block;
       }
       h3 {
-        font-size: 1.02rem;
+        font-size: 1.05rem;
         font-weight: 700;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.4rem;
       }
       p { margin-bottom: 1rem; color: var(--ink-soft); }
       p.lede { color: var(--ink); font-size: 1.08rem; }
@@ -97,37 +142,66 @@
       }
       .btn {
         display: inline-block;
-        padding: 0.6rem 1.1rem;
-        background: var(--ink);
+        padding: 0.65rem 1.25rem;
+        background: var(--accent);
         color: #fff;
         font-weight: 500;
+        font-size: 0.98rem;
         text-decoration: none;
-        border: 1px solid var(--ink);
+        border: 1.5px solid var(--accent);
+        border-radius: 4px;
+        transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
       }
-      .btn:hover { background: #000; text-decoration: none; }
+      .btn:hover {
+        background: var(--accent-deep);
+        border-color: var(--accent-deep);
+        color: #fff;
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
       .btn.secondary {
         background: transparent;
         color: var(--ink);
+        border-color: var(--rule);
       }
-      .btn.secondary:hover { background: #f5f5f5; }
+      .btn.secondary:hover {
+        background: rgba(31, 28, 23, 0.04);
+        border-color: var(--ink);
+        color: var(--ink);
+      }
 
       .item {
         padding: 1.25rem 0;
         border-top: 1px solid var(--rule);
       }
       .item:last-child { border-bottom: 1px solid var(--rule); }
-      .item .meta {
-        font-size: 0.88rem;
-        color: var(--ink-faint);
-        margin-bottom: 0.5rem;
+      .item-head {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.4rem;
       }
+      .item-head h3 { margin-bottom: 0; }
+      .pill {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 0.18rem 0.55rem;
+        border-radius: 999px;
+      }
+      .pill.live { background: var(--sage-bg); color: var(--sage); }
+      .pill.beta { background: var(--amber-bg); color: var(--amber); }
 
       .cta-line {
         margin-top: 1.5rem;
+        padding: 1rem 1.25rem;
+        background: var(--bg-deep);
+        border-radius: 6px;
         font-size: 0.98rem;
         color: var(--ink-soft);
       }
-      .cta-line a { font-weight: 500; }
+      .cta-line a { font-weight: 600; }
 
       footer {
         margin-top: 4rem;
@@ -140,15 +214,21 @@
         flex-wrap: wrap;
         gap: 0.5rem;
       }
+      footer a { color: var(--ink-faint); }
+      footer a:hover { color: var(--accent); }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+      }
     </style>
   </head>
   <body>
     <header>
-      <span class="name">Kathail</span>
-      <span class="loc">Northern Ontario</span>
+      <span class="name">Kathail<span class="dot">.</span></span>
+      <span class="loc"><span class="loc-dot"></span>Northern Ontario · open to new work</span>
     </header>
 
-    <h1>I build software for small operators in Northern Ontario.</h1>
+    <h1>I build software for small operators in <span class="accent">Northern Ontario</span>.</h1>
     <p class="lede">
       Custom web apps, internal tools, and customer-facing platforms for water utilities,
       regional distributors, and public services. One person, real software, no enterprise
@@ -180,26 +260,33 @@
     </div>
 
     <p class="cta-line">
-      Have something in mind? <a href="mailto:kathail@pm.me">Tell me about your project →</a>
+      <strong>Have something in mind?</strong>
+      <a href="mailto:kathail@pm.me">Tell me about your project →</a>
     </p>
 
     <h2>What I'm building</h2>
 
     <div class="item">
-      <h3>Northern Sweet Supply</h3>
-      <div class="meta">In production · since March 2026</div>
+      <div class="item-head">
+        <h3>Northern Sweet Supply</h3>
+        <span class="pill live">In production · since March 2026</span>
+      </div>
       <p>Wholesale candy distribution in Northern Ontario still runs on phone calls, faxes, and Excel sheets. I built a single platform that handles customer ordering, route planning for sales reps, and back-office operations — shaped around how the business actually works.</p>
       <p><a href="https://northernsweetsupply.ca">northernsweetsupply.ca →</a></p>
     </div>
     <div class="item">
-      <h3>CityWater</h3>
-      <div class="meta">In beta · 2026</div>
+      <div class="item-head">
+        <h3>CityWater</h3>
+        <span class="pill beta">In beta · 2026</span>
+      </div>
       <p>Small municipal water utilities often track inspections, work orders, and assets on paper or in systems built for much larger cities. CityWater is a simpler, mobile-friendly platform designed for smaller crews and real field workflows.</p>
       <p><a href="https://citywater.ca">citywater.ca (in beta) →</a></p>
     </div>
     <div class="item">
-      <h3>NorthWatch</h3>
-      <div class="meta">In beta · 2026</div>
+      <div class="item-head">
+        <h3>NorthWatch</h3>
+        <span class="pill beta">In beta · 2026</span>
+      </div>
       <p>Road conditions, outages, and weather alerts for Northern Ontario are scattered across multiple government and utility sites. NorthWatch brings the important updates into one straightforward dashboard built for how people actually live and travel up here.</p>
       <p><a href="https://web-production-99ffdf.up.railway.app">northwatch (in beta) →</a></p>
     </div>
