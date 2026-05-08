@@ -10,7 +10,8 @@ Static `index.html`, no build step, deployed to Railway behind Cloudflare. Push 
   → [northernsweetsupply.ca](https://northernsweetsupply.ca)
 - **CityWater** — public-works software for small water utilities. In beta.
   → [citywater.ca](https://citywater.ca)
-- **NorthWatch** — public status hub for Northern Ontario (road conditions, Hydro One outages, weather alerts). In beta.
+- **WatchNorth** — public status hub for Northern Ontario (road conditions, Hydro One outages, weather alerts). In beta.
+  → [watchnorth.ca](https://watchnorth.ca)
 
 ## Contact
 

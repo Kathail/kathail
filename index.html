@@ -66,10 +66,10 @@
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "NorthWatch",
+        "name": "WatchNorth",
         "applicationCategory": "GovernmentService",
         "operatingSystem": "Web",
-        "url": "https://web-production-99ffdf.up.railway.app",
+        "url": "https://watchnorth.ca",
         "creator": { "@type": "Person", "name": "Kathail", "url": "https://kathail.ca/" },
         "description": "Public status hub for Northern Ontario — aggregates road conditions, Hydro One outages, and weather alerts into a single dashboard."
       }
@@ -80,7 +80,7 @@
         --bg-deep: #f3ecd8;
         --ink: #1f1c17;            /* warm dark */
         --ink-soft: #4a443a;
-        --ink-faint: #8a8170;
+        --ink-faint: #6f6754;
         --rule: #e6dec9;
         --accent: #a02c20;         /* deep brick red */
         --accent-deep: #862218;
@@ -247,12 +247,8 @@
       .item {
         padding: 1.25rem 0;
         border-top: 1px solid var(--rule);
-        transition: border-top-color 200ms ease;
       }
       .item:last-child { border-bottom: 1px solid var(--rule); }
-      .item:hover { border-top-color: var(--ink-soft); }
-      .item:hover h3 { color: var(--accent); }
-      .item h3 { transition: color 200ms ease; }
       .item-head {
         display: flex;
         align-items: center;
@@ -261,6 +257,19 @@
         margin-bottom: 0.4rem;
       }
       .item-head h3 { margin-bottom: 0; }
+      .item h3 a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 150ms ease;
+      }
+      .item h3 a:hover { color: var(--accent); }
+      .item h3 a .arrow {
+        display: inline-block;
+        margin-left: 0.2rem;
+        color: var(--accent);
+        transition: transform 150ms ease;
+      }
+      .item h3 a:hover .arrow { transform: translateX(3px); }
       .pill {
         display: inline-block;
         font-size: 0.75rem;
@@ -270,6 +279,10 @@
       }
       .pill.live { background: var(--sage-bg); color: var(--sage); }
       .pill.beta { background: var(--amber-bg); color: var(--amber); }
+      .meta {
+        font-size: 0.85rem;
+        color: var(--ink-faint);
+      }
 
       .cta-line {
         margin-top: 1.5rem;
@@ -280,6 +293,18 @@
         color: var(--ink-soft);
       }
       .cta-line a { font-weight: 600; }
+
+      /* Under-construction banner */
+      .notice {
+        margin-bottom: 1.75rem;
+        padding: 0.7rem 1rem;
+        background: var(--amber-bg);
+        border-left: 3px solid var(--amber);
+        border-radius: 0 4px 4px 0;
+        font-size: 0.92rem;
+        color: var(--ink-soft);
+      }
+      .notice strong { color: var(--ink); }
 
       /* Pull-quote inside a work item */
       .testimonial {
@@ -318,11 +343,7 @@
         padding-top: 0.1rem;
       }
       .step-body { flex: 1; }
-      .step-body h3 {
-        margin-bottom: 0.3rem;
-        transition: color 200ms ease;
-      }
-      .step:hover h3 { color: var(--accent); }
+      .step-body h3 { margin-bottom: 0.3rem; }
       .step-body p { color: var(--ink-soft); margin-bottom: 0; }
 
       footer {
@@ -366,6 +387,9 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="notice" role="status">
+      <strong>Site under construction.</strong> Copy, links, and project details are still being finalized.
+    </div>
     <header>
       <span class="name">Kathail<span class="dot">.</span></span>
       <span class="loc"><span class="loc-dot"></span>Northern Ontario · open to new work</span>
@@ -392,8 +416,9 @@
 
     <div class="item">
       <div class="item-head">
-        <h3>Northern Sweet Supply</h3>
-        <span class="pill live">In production · since March 2026</span>
+        <h3><a href="https://northernsweetsupply.ca">Northern Sweet Supply <span class="arrow" aria-hidden="true">→</span></a></h3>
+        <span class="pill live">Live</span>
+        <span class="meta">since March 2026</span>
       </div>
       <p>Wholesale candy distribution in Northern Ontario still runs on phone calls, faxes, and Excel sheets. I built a single platform that handles customer ordering, route planning for sales reps, and back-office operations — shaped around how the business actually works.</p>
       <!-- DRAFT TESTIMONIAL — placeholder; replace with the owner's actual quote when received -->
@@ -401,23 +426,20 @@
         “It runs the whole operation now. We don't even keep paper sheets in the truck anymore.”
         <cite>— Owner, Northern Sweet Supply</cite>
       </blockquote>
-      <p><a href="https://northernsweetsupply.ca">northernsweetsupply.ca →</a></p>
     </div>
     <div class="item">
       <div class="item-head">
-        <h3>CityWater</h3>
-        <span class="pill beta">In beta · 2026</span>
+        <h3><a href="https://citywater.ca">CityWater <span class="arrow" aria-hidden="true">→</span></a></h3>
+        <span class="pill beta">Beta</span>
       </div>
       <p>Small municipal water utilities often track inspections, work orders, and assets on paper or in systems built for much larger cities. CityWater is a simpler, mobile-friendly platform designed for smaller crews and real field workflows — built by someone who came up running them.</p>
-      <p><a href="https://citywater.ca">citywater.ca (in beta) →</a></p>
     </div>
     <div class="item">
       <div class="item-head">
-        <h3>NorthWatch</h3>
-        <span class="pill beta">In beta · 2026</span>
+        <h3><a href="https://watchnorth.ca">WatchNorth <span class="arrow" aria-hidden="true">→</span></a></h3>
+        <span class="pill beta">Beta</span>
       </div>
-      <p>Road conditions, outages, and weather alerts for Northern Ontario are scattered across multiple government and utility sites. NorthWatch brings the important updates into one straightforward dashboard built for how people actually live and travel up here.</p>
-      <p><a href="https://web-production-99ffdf.up.railway.app">northwatch (in beta) →</a></p>
+      <p>Road conditions, outages, and weather alerts for Northern Ontario are scattered across multiple government and utility sites. WatchNorth brings the important updates into one straightforward dashboard built for how people actually live and travel up here.</p>
     </div>
 
     <h2 id="services">Services</h2>
@@ -467,11 +489,11 @@
       </div>
     </div>
 
-    <h2>About</h2>
+    <h2 id="about">About</h2>
     <p>One-person operation based in Northern Ontario.</p>
     <p>Before I built software for utilities, I spent 11+ years running them. Treatment plants, distribution systems, the operator's certificate. The software fits because I know what doesn't fit.</p>
 
-    <h2>Get in touch</h2>
+    <h2 id="contact">Get in touch</h2>
     <p>Got a workflow that doesn't fit the usual software, or a project that needs a real person to build it? Drop me a line. I read every email myself, and I usually reply within a day.</p>
     <div class="actions">
       <a class="btn" href="mailto:kathail@pm.me">kathail@pm.me</a>
@@ -483,9 +505,7 @@
         <span>© 2026 Kathail · Northern Ontario</span>
         <span class="footer-sub">Available for new projects · usually replies within a day</span>
       </div>
-      <div class="footer-right">
-        <a href="mailto:kathail@pm.me">kathail@pm.me</a>
-      </div>
+      <a href="mailto:kathail@pm.me">kathail@pm.me</a>
     </footer>
   </body>
 </html>
