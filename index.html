@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kathail — Software solutions</title>
     <meta name="description" content="A one-person software practice based in Northern Ontario. Custom web apps, internal tools, and online platforms for the operators and infrastructure up here." />
-    <meta name="theme-color" content="#faf6ec" />
+    <meta name="theme-color" content="#1c1814" />
     <meta property="og:title" content="Kathail — Software solutions" />
     <meta property="og:description" content="A one-person software practice based in Northern Ontario. Building the software that off-the-shelf tools don't fit." />
     <meta property="og:type" content="website" />
@@ -30,18 +30,18 @@
     </script>
     <style>
       :root {
-        --bg: #faf6ec;             /* warm cream, easy on the eyes */
-        --bg-deep: #f3ecd8;
-        --ink: #1f1c17;            /* warm dark */
-        --ink-soft: #4a443a;
-        --ink-faint: #8a8170;
-        --rule: #e6dec9;
-        --accent: #a02c20;         /* deep brick red */
-        --accent-deep: #862218;
-        --sage: #5d7a48;           /* live status */
-        --sage-bg: rgba(93, 122, 72, 0.13);
-        --amber: #a07426;          /* beta status */
-        --amber-bg: rgba(160, 116, 38, 0.13);
+        --bg: #1c1814;             /* deep warm near-black */
+        --bg-deep: #251f18;        /* subtle lift for callouts */
+        --ink: #ece2c9;            /* warm cream — main text */
+        --ink-soft: #b3a78a;       /* body */
+        --ink-faint: #756c5b;      /* meta */
+        --rule: #312a22;
+        --accent: #d97357;         /* warm terracotta, dusty */
+        --accent-light: #e88469;
+        --sage: #8aa074;
+        --sage-bg: rgba(138, 160, 116, 0.18);
+        --amber: #d4a55c;
+        --amber-bg: rgba(212, 165, 92, 0.18);
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html, body {
@@ -49,7 +49,7 @@
         color: var(--ink);
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
         font-size: 17px;
-        line-height: 1.6;
+        line-height: 1.65;
         -webkit-font-smoothing: antialiased;
       }
       body {
@@ -58,14 +58,14 @@
         padding: 56px 24px 80px;
       }
       a {
-        color: var(--accent-deep);
-        text-decoration-color: rgba(134, 34, 24, 0.4);
+        color: var(--accent);
+        text-decoration-color: rgba(217, 115, 87, 0.4);
         text-underline-offset: 0.18em;
         transition: color 150ms ease, text-decoration-color 150ms ease;
       }
       a:hover {
-        color: var(--accent);
-        text-decoration-color: var(--accent);
+        color: var(--accent-light);
+        text-decoration-color: var(--accent-light);
       }
       strong { font-weight: 600; color: var(--ink); }
       ::selection { background: var(--accent); color: var(--bg); }
@@ -84,6 +84,7 @@
         font-weight: 700;
         font-size: 1.1rem;
         letter-spacing: -0.01em;
+        color: var(--ink);
       }
       header .name .dot { color: var(--accent); }
       header .loc {
@@ -102,9 +103,9 @@
         animation: pulse 2.6s ease-out infinite;
       }
       @keyframes pulse {
-        0%   { box-shadow: 0 0 0 0 rgba(93, 122, 72, 0.5); }
-        70%  { box-shadow: 0 0 0 8px rgba(93, 122, 72, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(93, 122, 72, 0); }
+        0%   { box-shadow: 0 0 0 0 rgba(138, 160, 116, 0.5); }
+        70%  { box-shadow: 0 0 0 8px rgba(138, 160, 116, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(138, 160, 116, 0); }
       }
 
       h1 {
@@ -113,21 +114,21 @@
         line-height: 1.22;
         letter-spacing: -0.01em;
         margin-bottom: 1rem;
+        color: var(--ink);
       }
       h1 .accent { color: var(--accent); }
 
       h2 {
-        font-size: 1.18rem;
+        font-size: 1.15rem;
         font-weight: 700;
         margin-top: 3.5rem;
         margin-bottom: 1.25rem;
-        padding-bottom: 0.4rem;
-        border-bottom: 2px solid var(--accent);
-        display: inline-block;
+        color: var(--ink);
       }
       h3 {
         font-size: 1.05rem;
         font-weight: 700;
+        color: var(--ink);
         margin-bottom: 0.4rem;
       }
       p { margin-bottom: 1rem; color: var(--ink-soft); }
@@ -144,8 +145,8 @@
         display: inline-block;
         padding: 0.65rem 1.25rem;
         background: var(--accent);
-        color: #fff;
-        font-weight: 500;
+        color: #1c1814;
+        font-weight: 600;
         font-size: 0.98rem;
         text-decoration: none;
         border: 1.5px solid var(--accent);
@@ -153,9 +154,9 @@
         transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
       }
       .btn:hover {
-        background: var(--accent-deep);
-        border-color: var(--accent-deep);
-        color: #fff;
+        background: var(--accent-light);
+        border-color: var(--accent-light);
+        color: #1c1814;
         text-decoration: none;
         transform: translateY(-1px);
       }
@@ -165,8 +166,8 @@
         border-color: var(--rule);
       }
       .btn.secondary:hover {
-        background: rgba(31, 28, 23, 0.04);
-        border-color: var(--ink);
+        background: rgba(236, 226, 201, 0.04);
+        border-color: var(--ink-soft);
         color: var(--ink);
       }
 
@@ -201,6 +202,7 @@
         font-size: 0.98rem;
         color: var(--ink-soft);
       }
+      .cta-line strong { color: var(--ink); }
       .cta-line a { font-weight: 600; }
 
       footer {
@@ -214,8 +216,8 @@
         flex-wrap: wrap;
         gap: 0.5rem;
       }
-      footer a { color: var(--ink-faint); }
-      footer a:hover { color: var(--accent); }
+      footer a { color: var(--ink-faint); text-decoration-color: transparent; }
+      footer a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { animation: none !important; transition: none !important; }
