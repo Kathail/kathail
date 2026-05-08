@@ -6,7 +6,7 @@ Static `index.html`, no build step, deployed to Railway behind Cloudflare. Push 
 
 ## Current work
 
-- **Northern Sweet Supply** — B2B candy distribution platform serving Northern Ontario. In production since March 2026.
+- **Northern Sweet Supply** — Wholesale candy distribution platform serving Northern Ontario. In production since March 2026.
   → [northernsweetsupply.ca](https://northernsweetsupply.ca)
 - **CityWater** — public-works software for small water utilities. In beta.
   → [citywater.ca](https://citywater.ca)
