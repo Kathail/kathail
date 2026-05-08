@@ -43,6 +43,7 @@
         --rule: rgba(26, 26, 26, 0.1);
         --rule-strong: rgba(26, 26, 26, 0.25);
         --accent: #a02c20;
+        --moss: #3f7a3a;
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html, body {
@@ -53,10 +54,23 @@
         line-height: 1.65;
         -webkit-font-smoothing: antialiased;
       }
+      /* Subtle paper grain — fixed, tints the page without scroll-jank */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.7 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 0;
+        mix-blend-mode: multiply;
+      }
       body {
         max-width: 660px;
         margin: 0 auto;
-        padding: clamp(48px, 9vw, 80px) 24px 96px;
+        padding: clamp(40px, 8vw, 72px) 24px 96px;
+        position: relative;
+        z-index: 1;
       }
       a {
         color: var(--ink);
@@ -64,10 +78,25 @@
         text-decoration-color: var(--accent);
         text-decoration-thickness: 2px;
         text-underline-offset: 0.25em;
-        transition: text-decoration-color 120ms ease;
+        transition: text-decoration-color 120ms ease, color 120ms ease;
       }
       a:hover { text-decoration-color: var(--ink); }
       strong { font-weight: 700; }
+
+      /* Top coordinates strip — locates the studio */
+      .coords {
+        font-size: 0.68rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--rule);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
 
       .meta {
         font-size: 0.72rem;
@@ -77,27 +106,45 @@
       }
       .meta-bullet {
         display: inline-block;
-        width: 6px;
-        height: 6px;
+        width: 7px;
+        height: 7px;
         background: var(--accent);
         border-radius: 50%;
-        margin-right: 0.5rem;
+        margin-right: 0.55rem;
         vertical-align: 2px;
+        animation: pulse-ring 2.6s ease-out infinite;
+      }
+      @keyframes pulse-ring {
+        0%   { box-shadow: 0 0 0 0 rgba(160, 44, 32, 0.55); }
+        70%  { box-shadow: 0 0 0 9px rgba(160, 44, 32, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(160, 44, 32, 0); }
       }
 
       h1 {
-        font-size: 1.6rem;
+        font-size: clamp(1.7rem, 6vw, 2.1rem);
         font-weight: 700;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.03em;
         margin-top: 1.5rem;
       }
+      h1 .accent { color: var(--accent); }
+
+      /* Section labels with a rule extending right (label ──────) */
       h2 {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
         font-size: 0.78rem;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
         color: var(--ink-faint);
-        margin-bottom: 1.25rem;
+        margin-bottom: 1.5rem;
         font-weight: 700;
+      }
+      h2::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--rule);
       }
       h3 {
         font-size: 1.05rem;
@@ -109,14 +156,48 @@
         font-size: 1.05rem;
         line-height: 1.6;
       }
+      .hero p { margin-bottom: 1.1rem; }
+      .hero p:last-child { margin-bottom: 0; }
+      .moss-dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: var(--moss);
+        border-radius: 50%;
+        margin-right: 0.45rem;
+        vertical-align: 1px;
+        animation: pulse-moss 2.6s ease-out infinite;
+      }
+      @keyframes pulse-moss {
+        0%   { box-shadow: 0 0 0 0 rgba(63, 122, 58, 0.55); }
+        70%  { box-shadow: 0 0 0 8px rgba(63, 122, 58, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(63, 122, 58, 0); }
+      }
+
       .section { margin-top: 4.5rem; }
+
+      /* Tiny dingbat divider between major sections */
+      .dingbats {
+        margin: 5rem auto 4.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+        letter-spacing: 0.6em;
+        color: var(--ink-faint);
+        user-select: none;
+      }
+      .dingbats span:nth-child(2) { color: var(--accent); }
 
       /* Case studies */
       .case {
         padding: 1.75rem 0 2rem;
         border-top: 1px dashed var(--rule-strong);
+        transition: border-color 200ms ease, transform 220ms ease;
       }
       .case:last-child { border-bottom: 1px dashed var(--rule-strong); }
+      .case:hover {
+        border-top-color: var(--ink);
+      }
+      .case:hover + .case { border-top-color: var(--ink); }
       .case-head {
         display: flex;
         align-items: baseline;
@@ -124,11 +205,11 @@
         margin-bottom: 0.4rem;
       }
       .case-num {
-        font-size: 0.72rem;
+        font-size: 0.95rem;
         color: var(--accent);
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
+        font-weight: 700;
       }
-      .case-name { /* h3 */ }
       .case-status {
         font-size: 0.7rem;
         letter-spacing: 0.1em;
@@ -141,20 +222,23 @@
         margin-bottom: 0.85rem;
       }
       .case-body p:last-child { margin-bottom: 0; }
-      .case-body strong { color: var(--ink); }
       .case-link {
         margin-top: 1rem;
         font-size: 0.85rem;
         color: var(--ink-faint);
+        transition: transform 220ms ease;
       }
+      .case:hover .case-link { transform: translateX(4px); }
 
       /* Services */
       .services { margin-top: 0.5rem; }
       .service {
         padding: 1.25rem 0;
         border-top: 1px dashed var(--rule);
+        transition: padding-left 220ms ease;
       }
       .service:last-child { border-bottom: 1px dashed var(--rule); }
+      .service:hover { padding-left: 0.5rem; }
       .service-name {
         font-size: 1rem;
         font-weight: 700;
@@ -172,28 +256,63 @@
       .about p:last-child { margin-bottom: 0; }
 
       footer {
-        margin-top: 6rem;
+        margin-top: 5rem;
         padding-top: 1.5rem;
         border-top: 1px dashed var(--rule);
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         color: var(--ink-faint);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
 
       ::selection {
         background: var(--accent);
         color: var(--paper);
       }
+
+      /* Page-load entrance — gentle stagger by section */
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(10px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      main > * {
+        animation: rise 700ms ease-out both;
+      }
+      main > *:nth-child(1) { animation-delay: 0ms; }
+      main > *:nth-child(2) { animation-delay: 80ms; }
+      main > *:nth-child(3) { animation-delay: 160ms; }
+      main > *:nth-child(4) { animation-delay: 240ms; }
+      main > *:nth-child(5) { animation-delay: 300ms; }
+      main > *:nth-child(6) { animation-delay: 360ms; }
+      main > *:nth-child(7) { animation-delay: 420ms; }
+      main > *:nth-child(8) { animation-delay: 480ms; }
+      main > *:nth-child(9) { animation-delay: 540ms; }
+
+      /* Honor reduced-motion */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
     </style>
   </head>
   <body>
     <main>
+      <div class="coords">
+        <span>46° N · 81° W</span>
+        <span>Boreal · GMT−5</span>
+      </div>
+
       <header>
         <div class="meta">
           <span class="meta-bullet"></span>Kathail · Northern Ontario
         </div>
-        <h1>Kathail.</h1>
+        <h1>Kathail<span class="accent">.</span></h1>
       </header>
 
       <section class="hero">
@@ -207,8 +326,8 @@
           day-to-day in smaller operations.
         </p>
         <p>
-          Open to new projects. If you're dealing with workflows that don't quite fit the usual
-          software, feel free to reach out.
+          <span class="moss-dot"></span>Open to new projects. If you're dealing with workflows
+          that don't quite fit the usual software, feel free to reach out.
         </p>
       </section>
 
@@ -223,8 +342,8 @@
           <div class="case-status">In production · March 2026–</div>
           <div class="case-body">
             <p>
-              Wholesale candy distribution in Northern Ontario still runs on phone calls, faxes, and
-              Excel sheets. I built a single platform that handles customer ordering, route
+              Wholesale candy distribution in Northern Ontario still runs on phone calls, faxes,
+              and Excel sheets. I built a single platform that handles customer ordering, route
               planning for sales reps, and back-office operations — shaped around how the
               business actually works.
             </p>
@@ -266,6 +385,8 @@
         </article>
       </section>
 
+      <div class="dingbats" aria-hidden="true"><span>·</span><span>·</span><span>·</span></div>
+
       <section class="section">
         <h2>Services</h2>
         <div class="services">
@@ -301,6 +422,8 @@
         </div>
       </section>
 
+      <div class="dingbats" aria-hidden="true"><span>·</span><span>·</span><span>·</span></div>
+
       <section class="section about">
         <h2>About</h2>
         <p>
@@ -316,6 +439,9 @@
       </section>
     </main>
 
-    <footer>© 2026 Kathail · Northern Ontario</footer>
+    <footer>
+      <span>© 2026 Kathail</span>
+      <span>Northern Ontario · 46° N</span>
+    </footer>
   </body>
 </html>
