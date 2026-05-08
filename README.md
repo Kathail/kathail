@@ -1,10 +1,10 @@
 # kathail
 
-Source for the [Kathail](https://kathail-production.up.railway.app) studio site — a one-person software practice based in Northern Ontario.
+Source for the [Kathail](https://kathail.ca) studio site — a one-person software practice based in Northern Ontario.
 
-Static `index.html`, no build step, deployed to Railway. Push to `main` auto-redeploys.
+Static `index.html`, no build step, deployed to Railway behind Cloudflare. Push to `main` auto-redeploys.
 
-## Selected work
+## Current work
 
 - **Northern Sweet Supply** — B2B candy distribution platform serving Northern Ontario. In production since March 2026.
   → [northernsweetsupply.ca](https://northernsweetsupply.ca)
