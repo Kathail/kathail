@@ -281,6 +281,31 @@
       }
       .cta-line a { font-weight: 600; }
 
+      /* Process steps */
+      .step {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-top: 1px solid var(--rule);
+      }
+      .step:last-of-type { border-bottom: 1px solid var(--rule); }
+      .step-num {
+        flex-shrink: 0;
+        width: 2rem;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--accent);
+        font-variant-numeric: tabular-nums;
+        padding-top: 0.1rem;
+      }
+      .step-body { flex: 1; }
+      .step-body h3 {
+        margin-bottom: 0.3rem;
+        transition: color 200ms ease;
+      }
+      .step:hover h3 { color: var(--accent); }
+      .step-body p { color: var(--ink-soft); margin-bottom: 0; }
+
       footer {
         margin-top: 4rem;
         padding-top: 1.5rem;
@@ -364,6 +389,37 @@
       <a href="mailto:kathail@pm.me">Tell me about your project →</a>
     </p>
 
+    <h2>How I work</h2>
+
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>Tell me about it</h3>
+        <p>We talk through the problem, what's in your way, and what success looks like. Usually a 30-minute call. No charge, no pressure.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Scope and quote</h3>
+        <p>I send a plain-language plan: what gets built, when it lands, and what it costs. You read it, ask questions, decide.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>Build</h3>
+        <p>I do the work. You get regular updates and somewhere to try it as it comes together. No surprises at the end.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h3>Run it</h3>
+        <p>Once it's live, I keep it running. The first year of fixes and small changes is included.</p>
+      </div>
+    </div>
+
     <h2>What I'm building</h2>
 
     <div class="item">
@@ -395,7 +451,7 @@
     <p>One-person operation based in Northern Ontario. I build and maintain custom web applications, internal tools, and smaller platforms for teams that need software shaped to how they actually work — and I keep running the ones I own.</p>
 
     <h2>Get in touch</h2>
-    <p>Got a workflow that doesn't fit the usual software, or a project that needs a real person to build it? Drop me a line. I read every email myself.</p>
+    <p>Got a workflow that doesn't fit the usual software, or a project that needs a real person to build it? Drop me a line. I read every email myself, and I usually reply within a day.</p>
     <div class="actions">
       <a class="btn" href="mailto:kathail@pm.me">kathail@pm.me</a>
     </div>
