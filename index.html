@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kathail — Software solutions</title>
     <meta name="description" content="A one-person software practice based in Northern Ontario. Custom web apps, internal tools, and online platforms for the operators and infrastructure up here." />
-    <meta name="theme-color" content="#fafaf6" />
+    <meta name="theme-color" content="#fbf6ed" />
     <meta property="og:title" content="Kathail — Software solutions" />
     <meta property="og:description" content="A one-person software practice based in Northern Ontario. Building the software that off-the-shelf tools don't fit." />
     <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap"
       rel="stylesheet"
     />
     <script type="application/ld+json">
@@ -36,280 +36,328 @@
     </script>
     <style>
       :root {
-        --paper: #fafaf6;
-        --ink: #1a1a1a;
-        --ink-soft: #4a4a4a;
-        --ink-faint: #6e6e6e;
-        --rule: rgba(26, 26, 26, 0.1);
-        --rule-strong: rgba(26, 26, 26, 0.25);
-        --accent: #a02c20;
-        --moss: #3f7a3a;
-        --bay: #2c66a0;
-        --ochre: #c4922a;
+        --cream: #fbf6ed;
+        --cream-deep: #f4ecdb;
+        --surface: #ffffff;
+        --ink: #2a2521;
+        --ink-soft: #564f48;
+        --ink-faint: #8a8278;
+        --accent: #c46a4f;        /* warm terracotta */
+        --accent-deep: #a85638;
+        --sage: #7a8a5e;          /* status: live */
+        --amber: #c89f54;         /* status: beta */
+        --rule: rgba(42, 37, 33, 0.10);
+        --rule-soft: rgba(42, 37, 33, 0.05);
+        --shadow-sm: 0 1px 2px rgba(42, 37, 33, 0.04);
+        --shadow-md: 0 4px 14px rgba(42, 37, 33, 0.06), 0 1px 3px rgba(42, 37, 33, 0.05);
+        --shadow-cta: 0 2px 8px rgba(196, 106, 79, 0.2);
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html, body {
-        background: var(--paper);
+        background: var(--cream);
         color: var(--ink);
-        font-family: 'JetBrains Mono', ui-monospace, monospace;
-        font-size: 15px;
+        font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+        font-size: 16px;
         line-height: 1.65;
         -webkit-font-smoothing: antialiased;
       }
-      /* Subtle paper grain — fixed, tints the page without scroll-jank */
-      body::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.7 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-        opacity: 0.05;
-        pointer-events: none;
-        z-index: 0;
-        mix-blend-mode: multiply;
-      }
       body {
-        max-width: 660px;
+        max-width: 760px;
         margin: 0 auto;
-        padding: clamp(40px, 8vw, 72px) 24px 96px;
-        position: relative;
-        z-index: 1;
+        padding: clamp(28px, 6vw, 56px) 24px clamp(48px, 8vw, 96px);
       }
       a {
-        color: var(--ink);
-        text-decoration: underline;
-        text-decoration-color: var(--accent);
-        text-decoration-thickness: 2px;
-        text-underline-offset: 0.25em;
-        transition: text-decoration-color 120ms ease, color 120ms ease;
+        color: var(--accent-deep);
+        text-decoration-color: rgba(168, 86, 56, 0.4);
+        text-underline-offset: 0.2em;
+        transition: color 150ms ease, text-decoration-color 150ms ease;
       }
-      a:hover { text-decoration-color: var(--ink); }
-      strong { font-weight: 700; }
+      a:hover {
+        color: var(--accent);
+        text-decoration-color: var(--accent);
+      }
+      strong { font-weight: 600; color: var(--ink); }
+      ::selection { background: var(--accent); color: var(--cream); }
 
-      /* Top coordinates strip — locates the studio */
-      .coords {
-        font-size: 0.68rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--ink-faint);
-        padding-bottom: 1rem;
-        margin-bottom: 1.5rem;
-        border-bottom: 1px solid var(--rule);
+      /* ── Header ── */
+      .header {
         display: flex;
         justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 0.5rem;
+        align-items: center;
+        padding: 0.5rem 0;
+        margin-bottom: 3rem;
       }
-      /* Email in the strip stays lowercase so it reads as an address, not a yell */
-      .coords a {
-        text-transform: none;
-        letter-spacing: normal;
-        color: var(--ink);
-        text-decoration-thickness: 1.5px;
+      .brand {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
       }
-      .coords a:hover { color: var(--accent); }
-
-      .meta {
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
+      .brand .dot { color: var(--accent); }
+      .location {
+        font-size: 0.88rem;
         color: var(--ink-faint);
       }
-      .meta-bullet {
+      .location .moss-dot {
         display: inline-block;
-        width: 7px;
-        height: 7px;
-        background: var(--accent);
+        width: 8px;
+        height: 8px;
+        background: var(--sage);
         border-radius: 50%;
-        margin-right: 0.55rem;
-        vertical-align: 2px;
-        animation: pulse-ring 2.6s ease-out infinite;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+        animation: pulse 2.6s ease-out infinite;
       }
-      @keyframes pulse-ring {
-        0%   { box-shadow: 0 0 0 0 rgba(160, 44, 32, 0.55); }
-        70%  { box-shadow: 0 0 0 9px rgba(160, 44, 32, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(160, 44, 32, 0); }
+      @keyframes pulse {
+        0%   { box-shadow: 0 0 0 0 rgba(122, 138, 94, 0.5); }
+        70%  { box-shadow: 0 0 0 9px rgba(122, 138, 94, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(122, 138, 94, 0); }
       }
 
-      h1 {
-        font-size: clamp(1.7rem, 6vw, 2.1rem);
+      /* ── Hero ── */
+      .hero {
+        margin-bottom: 5rem;
+      }
+      .hero h1 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: clamp(2.1rem, 6.5vw, 3.4rem);
+        font-weight: 500;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        margin-bottom: 1.5rem;
+      }
+      .hero h1 .accent { color: var(--accent); }
+      .lede {
+        font-size: clamp(1.05rem, 1.8vw, 1.18rem);
+        line-height: 1.6;
+        color: var(--ink-soft);
+        max-width: 38em;
+        margin-bottom: 2rem;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      /* ── Buttons ── */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.85rem 1.5rem;
+        border-radius: 999px;
+        font-size: 0.98rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        white-space: nowrap;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: var(--shadow-cta);
+      }
+      .btn-primary:hover {
+        background: var(--accent-deep);
+        color: #fff;
+        text-decoration: none;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(196, 106, 79, 0.3);
+      }
+      .btn-outline {
+        color: var(--ink);
+        border: 1.5px solid var(--rule);
+        background: transparent;
+      }
+      .btn-outline:hover {
+        border-color: var(--ink);
+        color: var(--ink);
+        text-decoration: none;
+        background: rgba(42, 37, 33, 0.03);
+      }
+      .btn-large {
+        font-size: 1.05rem;
+        padding: 1rem 1.8rem;
+      }
+
+      /* ── Sections ── */
+      .section {
+        margin-bottom: 5rem;
+      }
+      .section h2 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: clamp(1.6rem, 3.5vw, 2rem);
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        margin-bottom: 0.5rem;
+      }
+      .section-lede {
+        font-size: 1rem;
+        color: var(--ink-faint);
+        margin-bottom: 2rem;
+      }
+
+      /* ── Services ── */
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
+      }
+      .service-card {
+        background: var(--surface);
+        padding: 1.5rem;
+        border-radius: 14px;
+        border: 1px solid var(--rule);
+        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      }
+      .service-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        border-color: rgba(196, 106, 79, 0.3);
+      }
+      .service-card h3 {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1.05rem;
         font-weight: 700;
-        letter-spacing: -0.03em;
-        margin-top: 1.5rem;
+        color: var(--ink);
+        margin-bottom: 0.6rem;
       }
-      h1 .accent { color: var(--accent); }
+      .service-card p {
+        color: var(--ink-soft);
+        font-size: 0.96rem;
+      }
 
-      /* Section labels with a rule extending right (label ──────) */
-      h2 {
+      /* ── Section CTA card ── */
+      .section-cta {
+        margin-top: 2.5rem;
+        padding: 1.75rem 1.75rem;
+        background: var(--cream-deep);
+        border-radius: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .section-cta p {
+        color: var(--ink-soft);
+        font-size: 1.02rem;
+        margin: 0;
+      }
+      .section-cta strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      /* ── Work cards ── */
+      .work {
+        display: grid;
+        gap: 1.25rem;
+      }
+      .work-card {
+        background: var(--surface);
+        padding: 1.75rem;
+        border-radius: 14px;
+        border: 1px solid var(--rule);
+        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      }
+      .work-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        border-color: rgba(196, 106, 79, 0.3);
+      }
+      .work-head {
         display: flex;
         align-items: center;
-        gap: 0.9rem;
-        font-size: 0.78rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--ink-faint);
-        margin-bottom: 1.5rem;
-        font-weight: 700;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
       }
-      h2::after {
-        content: '';
-        flex: 1;
-        height: 1px;
-        background: var(--rule);
+      .work-head h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-right: 0.25rem;
       }
-      h3 {
-        font-size: 1.05rem;
-        font-weight: 700;
-      }
-
-      .hero {
-        margin-top: 2rem;
-        font-size: 1.05rem;
-        line-height: 1.6;
-      }
-      .hero p { margin-bottom: 1.1rem; }
-      .hero p:last-child { margin-bottom: 0; }
-      .moss-dot {
+      .status-pill {
         display: inline-block;
-        width: 7px;
-        height: 7px;
-        background: var(--moss);
-        border-radius: 50%;
-        margin-right: 0.45rem;
-        vertical-align: 1px;
-        animation: pulse-moss 2.6s ease-out infinite;
+        font-size: 0.78rem;
+        font-weight: 500;
+        padding: 0.3rem 0.7rem;
+        border-radius: 999px;
+        letter-spacing: 0.01em;
       }
-      @keyframes pulse-moss {
-        0%   { box-shadow: 0 0 0 0 rgba(63, 122, 58, 0.55); }
-        70%  { box-shadow: 0 0 0 8px rgba(63, 122, 58, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(63, 122, 58, 0); }
+      .status-pill--live {
+        background: rgba(122, 138, 94, 0.15);
+        color: #5a6a40;
       }
-
-      .section { margin-top: 4.5rem; }
-
-      /* Tiny dingbat divider between major sections */
-      .dingbats {
-        margin: 5rem auto 4.5rem;
-        text-align: center;
-        font-size: 0.9rem;
-        letter-spacing: 0.6em;
-        color: var(--ink-faint);
-        user-select: none;
+      .status-pill--beta {
+        background: rgba(200, 159, 84, 0.18);
+        color: #8a6f30;
       }
-      .dingbats span:nth-child(2) { color: var(--accent); }
-
-      /* Case studies */
-      .case {
-        padding: 1.75rem 0 2rem;
-        border-top: 1px dashed var(--rule-strong);
-        transition: border-color 200ms ease, transform 220ms ease;
-      }
-      .case:last-child { border-bottom: 1px dashed var(--rule-strong); }
-      .case:hover {
-        border-top-color: var(--ink);
-      }
-      .case:hover + .case { border-top-color: var(--ink); }
-      .case-head {
-        display: flex;
-        align-items: baseline;
-        gap: 1rem;
-        margin-bottom: 0.4rem;
-      }
-      .case-num {
-        font-size: 0.95rem;
-        color: var(--accent);
-        letter-spacing: 0.05em;
-        font-weight: 700;
-      }
-      /* Per-project tint for numeral + link underline */
-      .case--nss .case-num { color: var(--accent); }
-      .case--cw  .case-num { color: var(--bay); }
-      .case--nw  .case-num { color: var(--ochre); }
-      .case--nss .case-link a { text-decoration-color: var(--accent); }
-      .case--cw  .case-link a { text-decoration-color: var(--bay); }
-      .case--nw  .case-link a { text-decoration-color: var(--ochre); }
-      .case-status {
-        font-size: 0.7rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--ink-faint);
-        margin-bottom: 1rem;
-      }
-      .case-body p {
+      .work-card p {
         color: var(--ink-soft);
-        margin-bottom: 0.85rem;
+        margin-bottom: 1.1rem;
       }
-      .case-body p:last-child { margin-bottom: 0; }
-      .case-link {
-        margin-top: 1rem;
-        font-size: 0.85rem;
-        color: var(--ink-faint);
-        transition: transform 220ms ease;
+      .work-link {
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--accent-deep);
       }
-      .case:hover .case-link { transform: translateX(4px); }
+      .work-link:hover { color: var(--accent); }
 
-      /* Services */
-      .services { margin-top: 0.5rem; }
-      .service {
-        padding: 1.25rem 0;
-        border-top: 1px dashed var(--rule);
-        transition: padding-left 220ms ease;
-      }
-      .service:last-child { border-bottom: 1px dashed var(--rule); }
-      .service:hover { padding-left: 0.5rem; }
-      .service-name {
-        font-size: 1rem;
-        font-weight: 700;
-        margin-bottom: 0.35rem;
-      }
-      .service-desc {
-        color: var(--ink-soft);
-        font-size: 0.95rem;
-      }
-
+      /* ── About ── */
       .about p {
+        font-size: 1.05rem;
         color: var(--ink-soft);
+        max-width: 36em;
+      }
+
+      /* ── Contact section ── */
+      .contact-section {
+        margin: 6rem 0 2rem;
+        padding: 3rem 2rem;
+        background: linear-gradient(180deg, var(--cream-deep) 0%, var(--cream) 100%);
+        border-radius: 20px;
+        text-align: center;
+      }
+      .contact-section h2 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        font-weight: 500;
         margin-bottom: 1rem;
       }
-      .about p:last-child { margin-bottom: 0; }
+      .contact-section p {
+        color: var(--ink-soft);
+        max-width: 30em;
+        margin: 0 auto 2rem;
+        font-size: 1.05rem;
+      }
 
+      /* ── Footer ── */
       footer {
-        margin-top: 5rem;
-        padding-top: 1.5rem;
-        border-top: 1px dashed var(--rule);
-        font-size: 0.7rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--rule);
+        font-size: 0.88rem;
         color: var(--ink-faint);
         display: flex;
         justify-content: space-between;
+        align-items: center;
         flex-wrap: wrap;
         gap: 0.5rem;
       }
-
-      ::selection {
-        background: var(--accent);
-        color: var(--paper);
+      footer a {
+        color: var(--ink-faint);
+        text-decoration-color: transparent;
       }
+      footer a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
-      /* Page-load entrance — gentle stagger by section */
-      @keyframes rise {
-        from { opacity: 0; transform: translateY(10px); }
-        to   { opacity: 1; transform: translateY(0); }
-      }
-      main > * {
-        animation: rise 700ms ease-out both;
-      }
-      main > *:nth-child(1) { animation-delay: 0ms; }
-      main > *:nth-child(2) { animation-delay: 80ms; }
-      main > *:nth-child(3) { animation-delay: 160ms; }
-      main > *:nth-child(4) { animation-delay: 240ms; }
-      main > *:nth-child(5) { animation-delay: 300ms; }
-      main > *:nth-child(6) { animation-delay: 360ms; }
-      main > *:nth-child(7) { animation-delay: 420ms; }
-      main > *:nth-child(8) { animation-delay: 480ms; }
-      main > *:nth-child(9) { animation-delay: 540ms; }
-
-      /* Honor reduced-motion */
+      /* Reduced motion */
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after {
           animation: none !important;
@@ -320,145 +368,133 @@
   </head>
   <body>
     <main>
-      <div class="coords">
-        <span>46° N · 81° W</span>
-        <a href="mailto:kathail@pm.me">kathail@pm.me →</a>
-      </div>
-
-      <header>
-        <div class="meta">
-          <span class="meta-bullet"></span>Kathail · Northern Ontario
+      <header class="header">
+        <div class="brand">Kathail<span class="dot">.</span></div>
+        <div class="location">
+          <span class="moss-dot"></span>Northern Ontario
         </div>
-        <h1>Kathail<span class="accent">.</span></h1>
       </header>
 
       <section class="hero">
-        <p>
-          I build custom software for small water utilities, regional distributors, and public
-          services in Northern Ontario.
+        <h1>Software shaped to how you <span class="accent">actually work</span>.</h1>
+        <p class="lede">
+          I build practical web apps, internal tools, and customer-facing platforms for small
+          water utilities, regional distributors, and public services in Northern Ontario.
+          One person, real software, no enterprise bloat.
         </p>
-        <p>
-          A lot of teams up here are still working with paper, spreadsheets, or tools built for
-          much bigger organizations. I make practical web apps that actually fit how things run
-          day-to-day in smaller operations.
-        </p>
-        <p>
-          <span class="moss-dot"></span>Open to new projects. If you're dealing with workflows
-          that don't quite fit the usual software, <a href="mailto:kathail@pm.me">feel free to reach out</a>.
-        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:kathail@pm.me">Start a project →</a>
+          <a class="btn btn-outline" href="#services">What I build ↓</a>
+        </div>
       </section>
 
-      <section class="section">
-        <h2>Current work</h2>
-
-        <article class="case case--nss">
-          <div class="case-head">
-            <span class="case-num">01</span>
-            <h3 class="case-name">Northern Sweet Supply</h3>
+      <section class="section" id="services">
+        <h2>What I build</h2>
+        <p class="section-lede">A short menu — most projects mix a few of these.</p>
+        <div class="services">
+          <div class="service-card">
+            <h3>Custom web apps</h3>
+            <p>
+              Full-stack tools when spreadsheets and off-the-shelf software stop working for you.
+              I handle discovery, design, building, and the first year of keeping it running.
+            </p>
           </div>
-          <div class="case-status">In production · March 2026–</div>
-          <div class="case-body">
+          <div class="service-card">
+            <h3>Internal tools &amp; workflows</h3>
+            <p>
+              Dashboards, work order systems, inspection forms, and operational tools built
+              around how your specific team actually works — not generic templates.
+            </p>
+          </div>
+          <div class="service-card">
+            <h3>Smaller platforms &amp; products</h3>
+            <p>
+              Customer-facing or multi-user products like ordering systems or public dashboards.
+              I take it from idea to a live product and keep it running.
+            </p>
+          </div>
+          <div class="service-card">
+            <h3>Technical advice</h3>
+            <p>
+              Architecture reviews, tech recommendations, or a second opinion when you don't
+              have senior engineering support in-house.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-cta">
+          <p><strong>Have something in mind?</strong> I'll help you scope it, even if I'm not the right fit to build it.</p>
+          <a class="btn btn-primary" href="mailto:kathail@pm.me">Tell me about it →</a>
+        </div>
+      </section>
+
+      <section class="section" id="work">
+        <h2>What I'm building</h2>
+        <p class="section-lede">Three projects currently shipping or in beta.</p>
+        <div class="work">
+          <article class="work-card">
+            <div class="work-head">
+              <h3>Northern Sweet Supply</h3>
+              <span class="status-pill status-pill--live">In production · since March 2026</span>
+            </div>
             <p>
               Wholesale candy distribution in Northern Ontario still runs on phone calls, faxes,
               and Excel sheets. I built a single platform that handles customer ordering, route
               planning for sales reps, and back-office operations — shaped around how the
               business actually works.
             </p>
-          </div>
-          <div class="case-link"><a href="https://northernsweetsupply.ca">northernsweetsupply.ca →</a></div>
-        </article>
-
-        <article class="case case--cw">
-          <div class="case-head">
-            <span class="case-num">02</span>
-            <h3 class="case-name">CityWater</h3>
-          </div>
-          <div class="case-status">In beta · 2026–</div>
-          <div class="case-body">
+            <a class="work-link" href="https://northernsweetsupply.ca">northernsweetsupply.ca →</a>
+          </article>
+          <article class="work-card">
+            <div class="work-head">
+              <h3>CityWater</h3>
+              <span class="status-pill status-pill--beta">In beta · 2026</span>
+            </div>
             <p>
-              Small municipal water utilities often track inspections, work orders, and assets on
-              paper or in systems built for much larger cities. CityWater is a simpler,
+              Small municipal water utilities often track inspections, work orders, and assets
+              on paper or in systems built for much larger cities. CityWater is a simpler,
               mobile-friendly platform designed for smaller crews and real field workflows.
             </p>
-          </div>
-          <div class="case-link"><a href="https://citywater.ca">citywater.ca (in beta) →</a></div>
-        </article>
-
-        <article class="case case--nw">
-          <div class="case-head">
-            <span class="case-num">03</span>
-            <h3 class="case-name">NorthWatch</h3>
-          </div>
-          <div class="case-status">In beta · 2026–</div>
-          <div class="case-body">
+            <a class="work-link" href="https://citywater.ca">citywater.ca →</a>
+          </article>
+          <article class="work-card">
+            <div class="work-head">
+              <h3>NorthWatch</h3>
+              <span class="status-pill status-pill--beta">In beta · 2026</span>
+            </div>
             <p>
               Road conditions, outages, and weather alerts for Northern Ontario are scattered
               across multiple government and utility sites. NorthWatch brings the important
               updates into one straightforward dashboard built for how people actually live and
               travel up here.
             </p>
-          </div>
-          <div class="case-link"><a href="https://web-production-99ffdf.up.railway.app">northwatch (in beta) →</a></div>
-        </article>
-      </section>
-
-      <div class="dingbats" aria-hidden="true"><span>·</span><span>·</span><span>·</span></div>
-
-      <section class="section">
-        <h2>Services</h2>
-        <div class="services">
-          <div class="service">
-            <h3 class="service-name">Custom web apps</h3>
-            <div class="service-desc">
-              I build full-stack tools when spreadsheets and off-the-shelf software stop working
-              for you. I handle discovery, design, building, and the first year of keeping it
-              running.
-            </div>
-          </div>
-          <div class="service">
-            <h3 class="service-name">Internal tools &amp; workflows</h3>
-            <div class="service-desc">
-              Dashboards, work order systems, inspection forms, and operational tools built
-              around how your specific team actually works — not generic templates.
-            </div>
-          </div>
-          <div class="service">
-            <h3 class="service-name">Smaller platforms &amp; products</h3>
-            <div class="service-desc">
-              If you need something customer-facing or multi-user (like an ordering system or
-              public dashboard), I can take it from idea to a live product and keep it running.
-            </div>
-          </div>
-          <div class="service">
-            <h3 class="service-name">Technical advice</h3>
-            <div class="service-desc">
-              Architecture reviews, tech recommendations, or a second opinion when you don't
-              have senior engineering support in-house.
-            </div>
-          </div>
+            <a class="work-link" href="https://web-production-99ffdf.up.railway.app">northwatch (in beta) →</a>
+          </article>
         </div>
       </section>
 
-      <div class="dingbats" aria-hidden="true"><span>·</span><span>·</span><span>·</span></div>
-
-      <section class="section about">
+      <section class="section about" id="about">
         <h2>About</h2>
         <p>
           One-person operation based in Northern Ontario. I build and maintain custom web
           applications, internal tools, and smaller platforms for teams that need software
-          shaped to how they actually work.
+          shaped to how they actually work — and I keep running the ones I own.
         </p>
       </section>
 
-      <section class="section">
-        <h2>Contact</h2>
-        <p><a href="mailto:kathail@pm.me">kathail@pm.me</a></p>
+      <section class="contact-section" id="contact">
+        <h2>Let's talk</h2>
+        <p>
+          Got a workflow that doesn't fit the usual software, or a project that needs a real
+          person to build it? Drop me a line — I read every email myself.
+        </p>
+        <a class="btn btn-primary btn-large" href="mailto:kathail@pm.me">kathail@pm.me</a>
       </section>
     </main>
 
     <footer>
-      <span>© 2026 Kathail</span>
-      <span>Northern Ontario · 46° N</span>
+      <div>© 2026 Kathail · Northern Ontario</div>
+      <div><a href="mailto:kathail@pm.me">kathail@pm.me</a></div>
     </footer>
   </body>
 </html>
