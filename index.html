@@ -5,24 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kathail — Software solutions</title>
     <meta name="description" content="A one-person software practice based in Northern Ontario. Custom web apps, internal tools, and SaaS products for the operators and infrastructure up here." />
+    <meta name="theme-color" content="#fafaf6" />
     <meta property="og:title" content="Kathail — Software solutions" />
     <meta property="og:description" content="A one-person software practice based in Northern Ontario. Building the software that off-the-shelf tools don't fit." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kathail.ca/" />
+    <meta property="og:image" content="https://kathail.ca/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23fafaf6'/%3E%3Ccircle cx='50' cy='50' r='28' fill='%23a02c20'/%3E%3C/svg%3E" />
+    <link rel="canonical" href="https://kathail.ca/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Kathail",
+        "url": "https://kathail.ca/",
+        "email": "kathail@pm.me",
+        "areaServed": { "@type": "Place", "name": "Northern Ontario, Canada" },
+        "description": "A one-person software practice based in Northern Ontario. Custom web apps, internal tools, and SaaS products."
+      }
+    </script>
     <style>
       :root {
         --paper: #fafaf6;
         --ink: #1a1a1a;
         --ink-soft: #4a4a4a;
-        --ink-faint: #8a8a8a;
+        --ink-faint: #6e6e6e;
         --rule: rgba(26, 26, 26, 0.1);
         --rule-strong: rgba(26, 26, 26, 0.25);
         --accent: #a02c20;
+        --status: #2e7a2e;
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html, body {
@@ -36,7 +56,7 @@
       body {
         max-width: 660px;
         margin: 0 auto;
-        padding: 80px 24px 96px;
+        padding: clamp(48px, 9vw, 80px) 24px 96px;
       }
       a {
         color: var(--ink);
@@ -77,12 +97,33 @@
         text-transform: uppercase;
         color: var(--ink-faint);
         margin-bottom: 1.25rem;
+        font-weight: 700;
+      }
+      h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
       }
 
       .hero {
         margin-top: 2rem;
         font-size: 1.05rem;
         line-height: 1.6;
+      }
+      .status {
+        margin-top: 1.5rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+      }
+      .status-bullet {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: var(--status);
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        vertical-align: 2px;
       }
 
       .section { margin-top: 4.5rem; }
@@ -104,10 +145,7 @@
         color: var(--accent);
         letter-spacing: 0.1em;
       }
-      .case-name {
-        font-weight: 700;
-        font-size: 1.05rem;
-      }
+      .case-name { /* h3 */ }
       .case-status {
         font-size: 0.7rem;
         letter-spacing: 0.1em;
@@ -135,6 +173,7 @@
       }
       .service:last-child { border-bottom: 1px dashed var(--rule); }
       .service-name {
+        font-size: 1rem;
         font-weight: 700;
         margin-bottom: 0.35rem;
       }
@@ -157,7 +196,17 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--ink-faint);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
+      footer a {
+        color: var(--ink-faint);
+        text-decoration-color: var(--rule-strong);
+      }
+      footer a:hover { text-decoration-color: var(--accent); }
+
       ::selection {
         background: var(--accent);
         color: var(--paper);
@@ -165,138 +214,145 @@
     </style>
   </head>
   <body>
-    <header>
-      <div class="meta">
-        <span class="meta-bullet"></span>Kathail · Northern Ontario
-      </div>
-      <h1>Kathail.</h1>
-    </header>
-
-    <section class="hero">
-      <p>
-        A one-person software practice. I design, build, and ship full-stack web applications,
-        internal tools, and SaaS products for small and mid-sized businesses — and I operate
-        the ones I own.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Selected work</h2>
-
-      <article class="case">
-        <div class="case-head">
-          <span class="case-num">01</span>
-          <span class="case-name">Northern Sweet Supply</span>
+    <main>
+      <header>
+        <div class="meta">
+          <span class="meta-bullet"></span>Kathail · Northern Ontario
         </div>
-        <div class="case-status">In production · since March 2026</div>
-        <div class="case-body">
-          <p>
-            <strong>Problem.</strong> B2B candy distribution in Northern Ontario still runs on
-            phone calls, fax orders, and Excel route sheets. Independent retailers want catalog
-            access; sales reps need route planning that isn't a stack of paper.
-          </p>
-          <p>
-            <strong>Approach.</strong> A vertically-integrated platform — customer-facing catalog
-            and ordering, field-sales tools, route planning, and back-office operations. The
-            software is the operations layer of the business, not a bolt-on.
-          </p>
-        </div>
-        <div class="case-link"><a href="https://northernsweetsupply.ca">northernsweetsupply.ca →</a></div>
-      </article>
+        <h1>Kathail.</h1>
+      </header>
 
-      <article class="case">
-        <div class="case-head">
-          <span class="case-num">02</span>
-          <span class="case-name">CityWater</span>
-        </div>
-        <div class="case-status">In beta · 2026–</div>
-        <div class="case-body">
-          <p>
-            <strong>Problem.</strong> Small municipal water utilities track inspections, work
-            orders, and asset records on paper, spreadsheets, or enterprise GIS suites built for
-            cities ten times their size.
-          </p>
-          <p>
-            <strong>Approach.</strong> A focused public-works platform sized for crews of one to
-            twenty. Mobile-first work orders, inspection forms shaped to real field workflows,
-            and an asset register built around the realities of small-town water, sewer, and
-            storm infrastructure.
-          </p>
-        </div>
-        <div class="case-link"><a href="https://citywater.ca">citywater.ca →</a></div>
-      </article>
+      <section class="hero">
+        <p>
+          The infrastructure up here is real — small water utilities, regional distributors,
+          public services running on the same systems as anywhere else — and the off-the-shelf
+          tools rarely fit. I build the ones that do.
+        </p>
+        <p class="status">
+          <span class="status-bullet"></span>Available for new work
+        </p>
+      </section>
 
-      <article class="case">
-        <div class="case-head">
-          <span class="case-num">03</span>
-          <span class="case-name">NorthWatch</span>
-        </div>
-        <div class="case-status">In beta · 2026–</div>
-        <div class="case-body">
-          <p>
-            <strong>Problem.</strong> Road conditions, Hydro One outages, and severe-weather
-            alerts for Northern Ontario live across half a dozen government and utility sites.
-            Residents and travelers piece it together one tab at a time.
-          </p>
-          <p>
-            <strong>Approach.</strong> A public status hub that aggregates road conditions,
-            outages, and weather alerts into a single dashboard — built for the realities of
-            travel and life north of the French River.
-          </p>
-        </div>
-        <div class="case-link"><a href="https://web-production-99ffdf.up.railway.app">northwatch (in beta) →</a></div>
-      </article>
-    </section>
+      <section class="section">
+        <h2>Current work</h2>
 
-    <section class="section">
-      <h2>Services</h2>
-      <div class="services">
-        <div class="service">
-          <div class="service-name">Custom web applications</div>
-          <div class="service-desc">
-            Full-stack builds for businesses that have outgrown spreadsheets, paper, or
-            off-the-shelf software that doesn't fit. Discovery, design, build, and the first
-            year of operation.
+        <article class="case">
+          <div class="case-head">
+            <span class="case-num">01</span>
+            <h3 class="case-name">Northern Sweet Supply</h3>
+          </div>
+          <div class="case-status">In production · March 2026–</div>
+          <div class="case-body">
+            <p>
+              <strong>Problem.</strong> B2B candy distribution in Northern Ontario still runs on
+              phone calls, fax orders, and Excel route sheets. Independent retailers want catalog
+              access; sales reps need route planning that isn't a stack of paper.
+            </p>
+            <p>
+              <strong>Approach.</strong> A vertically-integrated platform — customer-facing catalog
+              and ordering, field-sales tools, route planning, and back-office operations. The
+              software is the operations layer of the business, not a bolt-on.
+            </p>
+          </div>
+          <div class="case-link"><a href="https://northernsweetsupply.ca">northernsweetsupply.ca →</a></div>
+        </article>
+
+        <article class="case">
+          <div class="case-head">
+            <span class="case-num">02</span>
+            <h3 class="case-name">CityWater</h3>
+          </div>
+          <div class="case-status">In beta · 2026–</div>
+          <div class="case-body">
+            <p>
+              <strong>Problem.</strong> Small municipal water utilities track inspections, work
+              orders, and asset records on paper, spreadsheets, or enterprise GIS suites built for
+              cities ten times their size.
+            </p>
+            <p>
+              <strong>Approach.</strong> A focused public-works platform sized for crews of one to
+              twenty. Mobile-first work orders, inspection forms shaped to real field workflows,
+              and an asset register built around the realities of small-town water, sewer, and
+              storm infrastructure.
+            </p>
+          </div>
+          <div class="case-link"><a href="https://citywater.ca">citywater.ca →</a></div>
+        </article>
+
+        <article class="case">
+          <div class="case-head">
+            <span class="case-num">03</span>
+            <h3 class="case-name">NorthWatch</h3>
+          </div>
+          <div class="case-status">In beta · 2026–</div>
+          <div class="case-body">
+            <p>
+              <strong>Problem.</strong> Road conditions, Hydro One outages, and severe-weather
+              alerts for Northern Ontario live across half a dozen government and utility sites.
+              Residents and travelers piece it together one tab at a time.
+            </p>
+            <p>
+              <strong>Approach.</strong> A public status hub that aggregates road conditions,
+              outages, and weather alerts into a single dashboard — built for the realities of
+              travel and life north of the French River.
+            </p>
+          </div>
+          <div class="case-link"><a href="https://web-production-99ffdf.up.railway.app">northwatch (in beta) →</a></div>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2>Services</h2>
+        <div class="services">
+          <div class="service">
+            <h3 class="service-name">Custom web applications</h3>
+            <div class="service-desc">
+              Full-stack builds for businesses that have outgrown spreadsheets, paper, or
+              off-the-shelf software that doesn't fit. Discovery, design, build, and the first
+              year of operation.
+            </div>
+          </div>
+          <div class="service">
+            <h3 class="service-name">Internal tools &amp; line-of-business software</h3>
+            <div class="service-desc">
+              Workflow automation, dashboards, and operational tooling tailored to how a specific
+              team actually works — not how a generic SaaS thinks they should.
+            </div>
+          </div>
+          <div class="service">
+            <h3 class="service-name">Product engineering</h3>
+            <div class="service-desc">
+              SaaS and platform builds, including ongoing operation. I work with founders and
+              operators to ship the first version, then keep it running and evolving.
+            </div>
+          </div>
+          <div class="service">
+            <h3 class="service-name">Technical advisory</h3>
+            <div class="service-desc">
+              Architecture review, technology selection, and second-opinion engagements for teams
+              without senior engineering on staff.
+            </div>
           </div>
         </div>
-        <div class="service">
-          <div class="service-name">Internal tools &amp; line-of-business software</div>
-          <div class="service-desc">
-            Workflow automation, dashboards, and operational tooling tailored to how a specific
-            team actually works — not how a generic SaaS thinks they should.
-          </div>
-        </div>
-        <div class="service">
-          <div class="service-name">Product engineering</div>
-          <div class="service-desc">
-            SaaS and platform builds, including ongoing operation. I work with founders and
-            operators to ship the first version, then keep it running and evolving.
-          </div>
-        </div>
-        <div class="service">
-          <div class="service-name">Technical advisory</div>
-          <div class="service-desc">
-            Architecture review, technology selection, and second-opinion engagements for teams
-            without senior engineering on staff.
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section about">
-      <h2>About</h2>
-      <p>
-        Based in Northern Ontario. The infrastructure up here is real — small water utilities,
-        regional distributors, public services running on the same systems as anywhere else —
-        and the off-the-shelf tools rarely fit. I build the ones that do.
-      </p>
-    </section>
+      <section class="section about">
+        <h2>About</h2>
+        <p>
+          One person. Full-stack web applications, internal tools, and SaaS products for small
+          and mid-sized operators — and I keep running the ones I own.
+        </p>
+      </section>
 
-    <section class="section">
-      <h2>Contact</h2>
-      <p><a href="mailto:kathail@pm.me">kathail@pm.me</a></p>
-    </section>
+      <section class="section">
+        <h2>Contact</h2>
+        <p><a href="mailto:kathail@pm.me">kathail@pm.me</a></p>
+      </section>
+    </main>
 
-    <footer>© 2026 Kathail · Northern Ontario</footer>
+    <footer>
+      <span>© 2026 Kathail · Northern Ontario</span>
+      <span><a href="https://github.com/Kathail/kathail">Source</a></span>
+    </footer>
   </body>
 </html>
